@@ -12,6 +12,8 @@ public class TileMapGenerator : MonoBehaviour
 
     List<int> tilePrefabIndex = new List<int>();
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
