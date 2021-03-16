@@ -24,6 +24,22 @@ public class RobotMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            yCoord++;
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            yCoord--;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            xCoord++;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            xCoord--;
+        }
+        this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
     }
 }
