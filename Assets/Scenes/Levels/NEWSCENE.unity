@@ -186,8 +186,12 @@ MonoBehaviour:
   - {fileID: 2831911157916367843, guid: 687b6da12e767453a8a4bcb028209eb7, type: 3}
   - {fileID: 7435593914182025474, guid: 93cdd1a512d2f40e7b40c64eb5dd7216, type: 3}
   container: {fileID: 826668788}
-  rows: 20
-  columns: 20
+  rows: 40
+  columns: 40
+  seed: 
+  useRandomSeed: 0
+  numTilesToKeep: 1
+  randomFillPercent: 20
 --- !u!4 &1295519527
 Transform:
   m_ObjectHideFlags: 0
