@@ -190,8 +190,8 @@ MonoBehaviour:
   columns: 40
   seed: 
   useRandomSeed: 0
-  numTilesToKeep: 1
-  randomFillPercent: 20
+  numTilesToKeep: 2
+  randomFillPercent: 32
 --- !u!4 &1295519527
 Transform:
   m_ObjectHideFlags: 0
