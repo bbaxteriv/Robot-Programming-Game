@@ -98,3 +98,8 @@ MonoBehaviour:
   xCoord: 2
   yCoord: -1
   gridSize: 1
+  upFrame: {fileID: 21300000, guid: 22e2e266842ee4be99cc17a825471e49, type: 3}
+  downFrame: {fileID: 21300000, guid: 78d03ce1d36c540d5a183e4b042d3afb, type: 3}
+  rightFrame: {fileID: 21300000, guid: 63a766a7f307f49409668b84d9dd5cb0, type: 3}
+  leftFrame: {fileID: 21300000, guid: 52d98e63e7cbd42588ef0271b3435a31, type: 3}
+  manager: {fileID: 0}

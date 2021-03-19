@@ -18,7 +18,7 @@ public class TileMapGenerator : MonoBehaviour
     [Range(0,100)]
     public int randomFillPercent;
 
-    int[,] map;
+    public int[,] map;
     List<int> tilePrefabIndex = new List<int>();
 
     // Start is called before the first frame update
