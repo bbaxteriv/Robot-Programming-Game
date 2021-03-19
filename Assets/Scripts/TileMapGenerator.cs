@@ -33,11 +33,13 @@ public class TileMapGenerator : MonoBehaviour
         {
             for(int j = 0; j<columns; j++)
             {
-                int tileValue;
-                if (map[i,j] != 0) {
-                  tileValue = Random.Range(1, tilePrefabs.Length);
+              int tileValue;
+              //the 0 value in the map is assigned to the empty (or grass tile spot)
+              if (map[i,j] != 0) {
+                //in unity, the first one is a stone tile, this will change, but until we know how many tiles we need its hard to choose.
+                tileValue = 0;
                 } else {
-                  tileValue = 0;
+                  tileValue = Random.Range(1, tilePrefabs.Length);
                 }
                 //set a random prefab
 
@@ -51,6 +53,8 @@ public class TileMapGenerator : MonoBehaviour
             }
         }
     }
+
+
 
     //generates map, maybe combine with fandom fill?
     void GenerateMap() {
@@ -111,9 +115,9 @@ public class TileMapGenerator : MonoBehaviour
     }
 
     int CountCloseTiles(int x, int y) {
-      Debug.Log("checking it at " + x.ToString() + ", " + y.ToString());
-      Debug.Log("boundary at " + rows.ToString() + ", " + columns.ToString());
-      Debug.Log("map boundary at " + map.Length.ToString() + ", " + map.Length.ToString());
+      //Debug.Log("checking it at " + x.ToString() + ", " + y.ToString());
+      //Debug.Log("boundary at " + rows.ToString() + ", " + columns.ToString());
+      //Debug.Log("map boundary at " + map.Length.ToString() + ", " + map.Length.ToString());
 
       int tileCount = 0;
       //annoying to do the couble conditionals, but otherwise its harder to check the value of an array
