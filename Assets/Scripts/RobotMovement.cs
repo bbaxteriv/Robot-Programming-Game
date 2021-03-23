@@ -60,37 +60,9 @@ public class RobotMovement : MonoBehaviour
     }
 
     /*
-    NEW THING:
-
-    Added to be called from UI controller, just combines Update() and MoveRight()
-     */ 
-    public void MoveRightFULL()
-    {
-        this.GetComponent<SpriteRenderer>().sprite = rightFrame;
-        if (CheckTile(this.xCoord + 1, this.yCoord))
-        {
-            xCoord++;
-            this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        }
-        this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-    }
-
-    public void MoveLeftFULL()
-    {
-        this.GetComponent<SpriteRenderer>().sprite = leftFrame;
-        if (CheckTile(this.xCoord - 1, this.yCoord))
-        {
-            xCoord--;
-            this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        }
-        this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-    }
-
-
-    /*
     Moves the object up one tile, if possible
     */
-    void MoveUp()
+    public void MoveUp()
     {
         this.GetComponent<SpriteRenderer>().sprite = upFrame;
         if (CheckTile(this.xCoord, this.yCoord+1))
@@ -100,7 +72,7 @@ public class RobotMovement : MonoBehaviour
         }
     }
 
-    void MoveDown()
+    public void MoveDown()
     {
         this.GetComponent<SpriteRenderer>().sprite = downFrame;
         if (CheckTile(this.xCoord, this.yCoord-1))
@@ -110,7 +82,7 @@ public class RobotMovement : MonoBehaviour
         }
     }
 
-    void MoveRight()
+    public void MoveRight()
     {
         this.GetComponent<SpriteRenderer>().sprite = rightFrame;
         if (CheckTile(this.xCoord+1, this.yCoord))
@@ -120,7 +92,7 @@ public class RobotMovement : MonoBehaviour
         }
     }
 
-    void MoveLeft()
+    public void MoveLeft()
     {
         this.GetComponent<SpriteRenderer>().sprite = leftFrame;
         if (CheckTile(this.xCoord-1, this.yCoord))

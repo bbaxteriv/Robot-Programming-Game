@@ -7,6 +7,8 @@ public class UIController : MonoBehaviour
 {
     public GameObject RightButton;
     public GameObject LeftButton;
+    public GameObject UpButton;
+    public GameObject DownButton;
     public GameObject RunButton;
     public GameObject Robot;
     public Text SequenceText;
@@ -26,11 +28,19 @@ public class UIController : MonoBehaviour
         {
             if (SequenceArray[i] == "Right,")
             {
-                Robot.GetComponent<RobotMovement>().MoveRightFULL();
+                Robot.GetComponent<RobotMovement>().MoveRight();
             }
             else if (SequenceArray[i] == "Left,")
             {
-                Robot.GetComponent<RobotMovement>().MoveLeftFULL();
+                Robot.GetComponent<RobotMovement>().MoveLeft();
+            }
+            else if (SequenceArray[i] == "Down,")
+            {
+                Robot.GetComponent<RobotMovement>().MoveDown();
+            }
+            else if (SequenceArray[i] == "Up,")
+            {
+                Robot.GetComponent<RobotMovement>().MoveUp();
             }
             yield return new WaitForSeconds(0.5f);
         }
@@ -44,8 +54,17 @@ public class UIController : MonoBehaviour
     {
         SequenceText.text += " Left,";
     }
+    public void UpButtonClicked()
+    {
+        SequenceText.text += " Up,";
+    }
+    public void DownButtonClicked()
+    {
+        SequenceText.text += " Down,";
+    }
     public void RunButtonClicked()
     {
         StartCoroutine(MyCoroutine());
+        SequenceText.text = "SEQUENCE:";
     }
 }
