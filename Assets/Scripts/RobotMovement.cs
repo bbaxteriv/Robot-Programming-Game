@@ -60,6 +60,34 @@ public class RobotMovement : MonoBehaviour
     }
 
     /*
+    NEW THING:
+
+    Added to be called from UI controller, just combines Update() and MoveRight()
+     */ 
+    public void MoveRightFULL()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = rightFrame;
+        if (CheckTile(this.xCoord + 1, this.yCoord))
+        {
+            xCoord++;
+            this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
+        }
+        this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
+    }
+
+    public void MoveLeftFULL()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = leftFrame;
+        if (CheckTile(this.xCoord - 1, this.yCoord))
+        {
+            xCoord--;
+            this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
+        }
+        this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
+    }
+
+
+    /*
     Moves the object up one tile, if possible
     */
     void MoveUp()
