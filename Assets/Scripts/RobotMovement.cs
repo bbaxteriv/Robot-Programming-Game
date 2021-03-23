@@ -62,7 +62,7 @@ public class RobotMovement : MonoBehaviour
     /*
     Moves the object up one tile, if possible
     */
-    void MoveUp()
+    public void MoveUp()
     {
         this.GetComponent<SpriteRenderer>().sprite = upFrame;
         if (CheckTile(this.xCoord, this.yCoord+1))
@@ -72,7 +72,7 @@ public class RobotMovement : MonoBehaviour
         }
     }
 
-    void MoveDown()
+    public void MoveDown()
     {
         this.GetComponent<SpriteRenderer>().sprite = downFrame;
         if (CheckTile(this.xCoord, this.yCoord-1))
@@ -82,7 +82,7 @@ public class RobotMovement : MonoBehaviour
         }
     }
 
-    void MoveRight()
+    public void MoveRight()
     {
         this.GetComponent<SpriteRenderer>().sprite = rightFrame;
         if (CheckTile(this.xCoord+1, this.yCoord))
@@ -92,7 +92,7 @@ public class RobotMovement : MonoBehaviour
         }
     }
 
-    void MoveLeft()
+    public void MoveLeft()
     {
         this.GetComponent<SpriteRenderer>().sprite = leftFrame;
         if (CheckTile(this.xCoord-1, this.yCoord))
