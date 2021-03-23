@@ -570,7 +570,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabs:
-  - {fileID: 7435593914182025474, guid: 93cdd1a512d2f40e7b40c64eb5dd7216, type: 3}
   - {fileID: 2831911157916367843, guid: c4a40057abad3db40b7da06831fcbe80, type: 3}
   - {fileID: 2831911157916367843, guid: 62e3635e424af434b878396f4a676b6c, type: 3}
   - {fileID: 2831911157916367843, guid: 3f98faf93838bdb489357c1db3f1eaca, type: 3}
@@ -603,6 +602,8 @@ MonoBehaviour:
   - {fileID: 2831911157916367843, guid: 45d76df4acd07d6479e48046aa1ec258, type: 3}
   - {fileID: 2831911157916367843, guid: 6247c1e13d8202040ab61ed59527a158, type: 3}
   - {fileID: 2831911157916367843, guid: ea6db285f182c3443af7799bf225ca5a, type: 3}
+  - {fileID: 7435593914182025474, guid: 93cdd1a512d2f40e7b40c64eb5dd7216, type: 3}
+  - {fileID: 2831911157916367843, guid: 09d1dd411f583324d8adfbbc18fefaef, type: 3}
   container: {fileID: 826668788}
   rows: 40
   columns: 40
@@ -610,6 +611,7 @@ MonoBehaviour:
   useRandomSeed: 1
   numTilesToKeep: 1
   randomFillPercent: 12
+  randomWaterPercent: 41
 --- !u!4 &1295519527
 Transform:
   m_ObjectHideFlags: 0

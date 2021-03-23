@@ -18,6 +18,9 @@ public class TileMapGenerator : MonoBehaviour
     [Range(0,100)]
     public int randomFillPercent;
 
+    [Range(0,100)]
+    public int randomWaterPercent;
+
     public int[,] map;
     List<int> tilePrefabIndex = new List<int>();
 
@@ -35,21 +38,23 @@ public class TileMapGenerator : MonoBehaviour
             {
               int tileValue;
               //the 0 value in the map is assigned to the empty (or grass tile spot)
-              if (map[i,j] != 0) {
+              if (map[i,j] == 1) {
                 //in unity, the first one is a stone tile, this will change, but until we know how many tiles we need its hard to choose.
-                tileValue = 0;
-                } else {
-                  tileValue = Random.Range(1, tilePrefabs.Length);
-                }
+                tileValue = 32;
+              } else if (map[i,j] == 2){
+                tileValue = 33;
+              } else {
+                  tileValue = Random.Range(0, tilePrefabs.Length-2);
+              }
                 //set a random prefab
 
-                tilePrefabIndex.Add(tileValue);
+              tilePrefabIndex.Add(tileValue);
 
-                Vector3 position = new Vector3(i, j, 0);
+              Vector3 position = new Vector3(i, j, 0);
 
-                GameObject tile = Instantiate(tilePrefabs[tileValue], position, Quaternion.identity);
+              GameObject tile = Instantiate(tilePrefabs[tileValue], position, Quaternion.identity);
 
-                tile.transform.parent = container.transform;
+              tile.transform.parent = container.transform;
             }
         }
     }
@@ -103,10 +108,16 @@ public class TileMapGenerator : MonoBehaviour
 
     void SmoothMap() {
       int[,] newMap = map;
+        System.Random random = new System.Random(seed.GetHashCode());
       for (int x = 0; x < rows; x ++) {
           for (int y = 0; y < columns; y ++) {
-            if (map[x,y] == 1 && CountCloseTiles(x,y) < numTilesToKeep) {
+            if (map[x,y] == 1 && CountCloseTiles(x,y, 1) < numTilesToKeep) {
               newMap[x,y] = 0;
+            }
+            else {
+              if (map[x,y] == 0) {
+                newMap[x,y] = (random.Next(0,100) < randomWaterPercent)? 2: 0;
+              }
             }
           }
       }
@@ -114,7 +125,7 @@ public class TileMapGenerator : MonoBehaviour
 
     }
 
-    int CountCloseTiles(int x, int y) {
+    int CountCloseTiles(int x, int y, int value) {
       //Debug.Log("checking it at " + x.ToString() + ", " + y.ToString());
       //Debug.Log("boundary at " + rows.ToString() + ", " + columns.ToString());
       //Debug.Log("map boundary at " + map.Length.ToString() + ", " + map.Length.ToString());
@@ -123,22 +134,22 @@ public class TileMapGenerator : MonoBehaviour
       //annoying to do the couble conditionals, but otherwise its harder to check the value of an array
       //maybe use && to prevent the second from being run?
       if (x != 0) {
-        if (map[x-1,y] == 1) {
+        if (map[x-1,y] == value) {
           tileCount++;
         }
       }
       if (x != rows-1) {
-        if (map[x+1,y] == 1) {
+        if (map[x+1,y] == value) {
           tileCount++;
         }
       }
       if (y != 0) {
-        if (map[x,y-1] == 1) {
+        if (map[x,y-1] == value) {
           tileCount++;
         }
       }
       if (y != columns-1) {
-        if (map[x,y+1] == 1) {
+        if (map[x,y+1] == value) {
           tileCount++;
         }
       }
