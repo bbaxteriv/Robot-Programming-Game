@@ -490,53 +490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePrefabs:
-  - {fileID: 2831911157916367843, guid: c4a40057abad3db40b7da06831fcbe80, type: 3}
-  - {fileID: 2831911157916367843, guid: 62e3635e424af434b878396f4a676b6c, type: 3}
-  - {fileID: 2831911157916367843, guid: 3f98faf93838bdb489357c1db3f1eaca, type: 3}
-  - {fileID: 2831911157916367843, guid: bf183f6112c86744cb9c725329d6c5ad, type: 3}
-  - {fileID: 2831911157916367843, guid: 42659dd8925cb794bb1e7a409957350c, type: 3}
-  - {fileID: 2831911157916367843, guid: c5d66512c63e3f94e99c4dcd8b19e5f3, type: 3}
-  - {fileID: 2831911157916367843, guid: e1ae5bad34ff6df4e95c4ff0cea2b8d1, type: 3}
-  - {fileID: 2831911157916367843, guid: e2192d2763d61e3478ae5be21fd87009, type: 3}
-  - {fileID: 2831911157916367843, guid: 0a5de1c30f24d6d4aa8d222bcfeb668c, type: 3}
-  - {fileID: 2831911157916367843, guid: f2a5d530b7035d84f82fa0c0503a7281, type: 3}
-  - {fileID: 2831911157916367843, guid: 88f94ef353f4f4f47a50df66eb86adad, type: 3}
-  - {fileID: 2831911157916367843, guid: 28a9533049f7f4b42874d7b1530478bb, type: 3}
-  - {fileID: 2831911157916367843, guid: b126286784570614786985835ce1effd, type: 3}
-  - {fileID: 2831911157916367843, guid: 40707362feb477640bba8bc1131d07c9, type: 3}
-  - {fileID: 2831911157916367843, guid: afd30b9600629a24ca5771cf5cfa1fe2, type: 3}
-  - {fileID: 2831911157916367843, guid: 4e57921091e55f744b5e9deb29d6ca82, type: 3}
-  - {fileID: 2831911157916367843, guid: 55801b2f82032a44f9ff613f22fab715, type: 3}
-  - {fileID: 2831911157916367843, guid: 8a67b63031c851740bec4ddb2e179a00, type: 3}
-  - {fileID: 2831911157916367843, guid: f13de89d89f984a40a169a1fe9b2fbcf, type: 3}
-  - {fileID: 2831911157916367843, guid: 54d49e1a125f12444a4ad1f4983d57a1, type: 3}
-  - {fileID: 2831911157916367843, guid: ad25aa684a043d84ebb6bceba765e4ef, type: 3}
-  - {fileID: 2831911157916367843, guid: 2ea5a7c81fd0a914882516d1fd01d12a, type: 3}
-  - {fileID: 2831911157916367843, guid: 1c6207a711226b24c9291b0b5581e1a2, type: 3}
-  - {fileID: 2831911157916367843, guid: 223c55a7deb0bc74985dc294fd9154c9, type: 3}
-  - {fileID: 2831911157916367843, guid: a26086879731c954585c4c7a558906be, type: 3}
-  - {fileID: 2831911157916367843, guid: 1d07c3efebe383a449df8caef164f8ba, type: 3}
-  - {fileID: 2831911157916367843, guid: 1e5e35439be58054baa90e089e13dfc0, type: 3}
-  - {fileID: 2831911157916367843, guid: 893febbfd585de34e91959badd08b40d, type: 3}
-  - {fileID: 2831911157916367843, guid: bfb4e427a7618c449895b6bfc16d38a6, type: 3}
-  - {fileID: 2831911157916367843, guid: 45d76df4acd07d6479e48046aa1ec258, type: 3}
-  - {fileID: 2831911157916367843, guid: 6247c1e13d8202040ab61ed59527a158, type: 3}
-  - {fileID: 2831911157916367843, guid: ea6db285f182c3443af7799bf225ca5a, type: 3}
-  - {fileID: 7435593914182025474, guid: 93cdd1a512d2f40e7b40c64eb5dd7216, type: 3}
-  - {fileID: 2831911157916367843, guid: 09d1dd411f583324d8adfbbc18fefaef, type: 3}
-  container: {fileID: 826668788}
-  rows: 40
-  columns: 40
-  seed: 
-  useRandomSeed: 1
-  numTilesToKeep: 1
-  randomFillPercent: 12
-  randomWaterPercent: 41
---- !u!4 &1295519527
-Transform:
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -544,19 +499,19 @@ Transform:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 0}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Go Right
+  m_Text: 
 --- !u!222 &418601634
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1011,7 +966,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabs:
-  - {fileID: 7435593914182025474, guid: 93cdd1a512d2f40e7b40c64eb5dd7216, type: 3}
   - {fileID: 2831911157916367843, guid: c4a40057abad3db40b7da06831fcbe80, type: 3}
   - {fileID: 2831911157916367843, guid: 62e3635e424af434b878396f4a676b6c, type: 3}
   - {fileID: 2831911157916367843, guid: 3f98faf93838bdb489357c1db3f1eaca, type: 3}
@@ -1044,13 +998,16 @@ MonoBehaviour:
   - {fileID: 2831911157916367843, guid: 45d76df4acd07d6479e48046aa1ec258, type: 3}
   - {fileID: 2831911157916367843, guid: 6247c1e13d8202040ab61ed59527a158, type: 3}
   - {fileID: 2831911157916367843, guid: ea6db285f182c3443af7799bf225ca5a, type: 3}
+  - {fileID: 7435593914182025474, guid: 93cdd1a512d2f40e7b40c64eb5dd7216, type: 3}
+  - {fileID: 2831911157916367843, guid: 09d1dd411f583324d8adfbbc18fefaef, type: 3}
   container: {fileID: 826668788}
-  rows: 40
-  columns: 40
+  rows: 30
+  columns: 30
   seed: 
   useRandomSeed: 1
   numTilesToKeep: 1
-  randomFillPercent: 12
+  randomFillPercent: 46
+  randomWaterPercent: 21
 --- !u!4 &1295519527
 Transform:
   m_ObjectHideFlags: 0
