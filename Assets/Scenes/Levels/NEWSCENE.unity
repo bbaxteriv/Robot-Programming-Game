@@ -928,8 +928,8 @@ MonoBehaviour:
   useRandomSeed: 1
   numTilesToKeep: 1
   randomFillPercent: 12
-  randomWaterPercent: 10
   flowerAppearance: 38
+  randomWaterPercent: 38
 --- !u!4 &1295519527
 Transform:
   m_ObjectHideFlags: 0
