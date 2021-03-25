@@ -21,6 +21,9 @@ public class TileMapGenerator : MonoBehaviour
     [Range(0,100)]
     public int randomWaterPercent;
 
+    [Range(0,100)]
+    public int flowerAppearance;
+
     public int[,] map;
     List<int> tilePrefabIndex = new List<int>();
 
@@ -44,7 +47,17 @@ public class TileMapGenerator : MonoBehaviour
               } else if (map[i,j] == 2){
                 tileValue = 33;
               } else {
-                  tileValue = Random.Range(0, tilePrefabs.Length-2);
+              /*  int myRand = Random.Range(0,100);
+                Debug.Log(myRand);
+                if (myRand > flowerAppearance) {
+                    tileValue = Random.Range(0, 15);
+                    Debug.Log("gras");
+                } else {
+                    tileValue = Random.Range(16, 31);
+                    Debug.Log("flower");
+                }*/
+                tileValue = (Random.Range(1,100) > flowerAppearance)? Random.Range(0, 15): Random.Range(16, 31);
+                Debug.Log("Here");
               }
                 //set a random prefab
 
