@@ -7,7 +7,11 @@ public class CameraScript : MonoBehaviour
     Vector2 mouseClickPos;
     Vector2 mouseCurrentPos;
     bool panning = false;
-
+    /*private void Start()
+    {
+      //transform.position = new Vector3(0,0,0);
+    }
+*/
     private void Update()
     {
         // When RMB clicked get mouse click position and set panning to true

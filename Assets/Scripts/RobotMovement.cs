@@ -137,6 +137,10 @@ public class RobotMovement : MonoBehaviour
         {
             return -1;
         }
+        if (this.mapGenerator.map[x,y] != 0)
+        {
+          return -1;
+        }
         return this.mapGenerator.map[x,y];
     }
 }
