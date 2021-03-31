@@ -11,11 +11,14 @@ public class UIController : MonoBehaviour
     public GameObject DownButton;
     public GameObject RunButton;
     public GameObject Robot;
+    public GameObject manager;
+    private ObjectManager objectManager;
     public Text SequenceText;
 
     private void Start()
     {
         SequenceText.text = "SEQUENCE:";
+        this.objectManager = this.manager.GetComponent<ObjectManager>();
     }
 
     //does time things
@@ -64,7 +67,14 @@ public class UIController : MonoBehaviour
     }
     public void RunButtonClicked()
     {
-        StartCoroutine(MyCoroutine());
-        SequenceText.text = "SEQUENCE:";
+        if (this.Robot != null)
+        {
+            StartCoroutine(MyCoroutine());
+            SequenceText.text = "SEQUENCE:";
+        }
+    }
+    public void SpawnRobotButtonClicked()
+    {
+        this.objectManager.SpawnRobot(0, 0);
     }
 }

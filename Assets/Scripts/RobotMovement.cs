@@ -9,8 +9,8 @@ Handles the movement of a user-controlled robot
 public class RobotMovement : MonoBehaviour
 {
     // (x,y) position of robot
-    public int xCoord = 0;
-    public int yCoord = 0;
+    public int xCoord;
+    public int yCoord;
     // tile to Unity grid scaling constant
     public float gridSize = 1;
     // movement frames
@@ -21,6 +21,9 @@ public class RobotMovement : MonoBehaviour
     // to access map generator script
     public GameObject manager;
     private TileMapGenerator mapGenerator;
+    private bool selected;
+    public GameObject canvas;
+    private UIController programController;
 
     /*
     Start is called before the first frame update
@@ -31,6 +34,8 @@ public class RobotMovement : MonoBehaviour
         float posY = yCoord * gridSize;
         this.transform.position = new Vector2(posX, posY);
         this.mapGenerator = this.manager.GetComponent<TileMapGenerator>();
+        this.selected = false;
+        this.programController = this.canvas.GetComponent<UIController>();
     }
 
     /*
@@ -40,21 +45,30 @@ public class RobotMovement : MonoBehaviour
     */
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (this.selected)
         {
-            MoveUp();
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                MoveUp();
+            }
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                MoveDown();
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                MoveRight();
+            }
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                MoveLeft();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            MoveDown();
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            MoveRight();
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            MoveLeft();
+            this.selected = false;
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+            this.programController.Robot = null;
         }
         this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
     }
@@ -99,6 +113,19 @@ public class RobotMovement : MonoBehaviour
         {
             xCoord--;
             this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if (!this.selected)
+        {
+            if (this.programController.Robot == null)
+            {
+                this.selected = true;
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 1);
+                this.programController.Robot = gameObject;
+            }
         }
     }
 
