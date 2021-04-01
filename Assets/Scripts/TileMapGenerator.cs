@@ -39,7 +39,7 @@ public class TileMapGenerator : MonoBehaviour
         {
             for(int j = 0; j<columns; j++)
             {
-              int tileValue;
+              int tileValue=0;
               //the 0 value in the map is assigned to the empty (or grass tile spot)
               if (map[i,j] == 1) {
                 //in unity, the first one is a stone tile, this will change, but until we know how many tiles we need its hard to choose.
