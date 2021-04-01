@@ -38,4 +38,13 @@ public class ObjectManager : MonoBehaviour
         script.canvas = this.canvas;
         this.objectList.Add(robot);
     }
+    public void DestroyRobot()
+    {
+        for (int i = 0; i < this.objectList.Count; i++)
+        {
+            //if (this.objectList[i].RobotMovement.selected == true) {
+                Destroy(this.objectList[i]);
+            //}
+        }
+    }
 }
