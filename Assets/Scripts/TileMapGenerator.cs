@@ -97,7 +97,7 @@ public class TileMapGenerator : MonoBehaviour
               tilePrefabIndex.Add(tileValue);
 
               Vector3 position = new Vector3(i, j, 0);
-
+              Debug.Log(tileValue);
               GameObject tile = Instantiate(tilePrefabs[tileValue], position, Quaternion.identity);
 
               tile.transform.parent = container.transform;

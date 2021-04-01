@@ -1006,8 +1006,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'TestText
-'
+  m_Text: 'TestText '
 --- !u!222 &1061147820
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1080,7 +1079,22 @@ MonoBehaviour:
   - {fileID: 2831911157916367843, guid: 6247c1e13d8202040ab61ed59527a158, type: 3}
   - {fileID: 2831911157916367843, guid: ea6db285f182c3443af7799bf225ca5a, type: 3}
   - {fileID: 7435593914182025474, guid: 93cdd1a512d2f40e7b40c64eb5dd7216, type: 3}
-  - {fileID: 2831911157916367843, guid: 09d1dd411f583324d8adfbbc18fefaef, type: 3}
+  - {fileID: 2831911157916367843, guid: f5bbff63f2fe9004ca63d25001c8b2cb, type: 3}
+  - {fileID: 2831911157916367843, guid: df702a03f54446b4bab76bef66081781, type: 3}
+  - {fileID: 2831911157916367843, guid: 357878bb5d3191c46a7a3b121019cd46, type: 3}
+  - {fileID: 2831911157916367843, guid: 0b84f007afbd8be4ca56e0e144618108, type: 3}
+  - {fileID: 2831911157916367843, guid: 7f1da0f7855f37745afb9c884e6ef5ac, type: 3}
+  - {fileID: 2831911157916367843, guid: e1ff4326691de2b4d8921606887f2c73, type: 3}
+  - {fileID: 2831911157916367843, guid: 3c4f7ed0a2b4f7046bd11d1ee82ae6f4, type: 3}
+  - {fileID: 2831911157916367843, guid: 197c65f4c8b4f4148aae10e4ef43e6c7, type: 3}
+  - {fileID: 2831911157916367843, guid: 3d54515688f32f649ba7a095c296e4e7, type: 3}
+  - {fileID: 2831911157916367843, guid: 2c85441dd08442c4f90af42df4eaabf4, type: 3}
+  - {fileID: 2831911157916367843, guid: 1b01c00ce8af341478229dd340a0d64a, type: 3}
+  - {fileID: 2831911157916367843, guid: 32ac46a169de77a43952c871c74fa698, type: 3}
+  - {fileID: 2831911157916367843, guid: 316b7b2a4a881d04399a19dd0e37fd95, type: 3}
+  - {fileID: 2831911157916367843, guid: d9d61325efc072348bdee3acc8028dbe, type: 3}
+  - {fileID: 2831911157916367843, guid: d06f33133db3d3b48b864ad457e262da, type: 3}
+  - {fileID: 2831911157916367843, guid: e6f36a27d16bcab45900e342a530d4ff, type: 3}
   container: {fileID: 826668788}
   rows: 40
   columns: 40
