@@ -67,8 +67,11 @@ public class UIController : MonoBehaviour
     }
     public void RunButtonClicked()
     {
-        StartCoroutine(MyCoroutine());
-        SequenceText.text = "SEQUENCE:";
+        if (this.Robot != null)
+        {
+            StartCoroutine(MyCoroutine());
+            SequenceText.text = "SEQUENCE:";
+        }
     }
     public void SpawnRobotButtonClicked()
     {

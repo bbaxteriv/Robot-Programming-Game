@@ -10,6 +10,7 @@ public class ObjectManager : MonoBehaviour
 {
     private TileMapGenerator mapGenerator;
     public GameObject robotPrefab;
+    public GameObject canvas;
     public List<GameObject> objectList = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class ObjectManager : MonoBehaviour
         script.xCoord = x;
         script.yCoord = y;
         script.manager = this.gameObject;
+        script.canvas = this.canvas;
         this.objectList.Add(robot);
     }
 }

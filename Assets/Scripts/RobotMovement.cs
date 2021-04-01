@@ -22,7 +22,8 @@ public class RobotMovement : MonoBehaviour
     public GameObject manager;
     private TileMapGenerator mapGenerator;
     private bool selected;
-    private Color startColor;
+    public GameObject canvas;
+    private UIController programController;
 
     /*
     Start is called before the first frame update
@@ -34,7 +35,7 @@ public class RobotMovement : MonoBehaviour
         this.transform.position = new Vector2(posX, posY);
         this.mapGenerator = this.manager.GetComponent<TileMapGenerator>();
         this.selected = false;
-        this.startColor = GetComponent<Renderer>().material.color;
+        this.programController = this.canvas.GetComponent<UIController>();
     }
 
     /*
@@ -67,6 +68,7 @@ public class RobotMovement : MonoBehaviour
         {
             this.selected = false;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+            this.programController.Robot = null;
         }
         this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
     }
@@ -118,8 +120,12 @@ public class RobotMovement : MonoBehaviour
     {
         if (!this.selected)
         {
-            this.selected = true;
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 1);
+            if (this.programController.Robot == null)
+            {
+                this.selected = true;
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 1);
+                this.programController.Robot = gameObject;
+            }
         }
     }
 
@@ -157,6 +163,10 @@ public class RobotMovement : MonoBehaviour
         if (y < 0 || y >= this.mapGenerator.columns)
         {
             return -1;
+        }
+        if (this.mapGenerator.map[x,y] != 0)
+        {
+          return -1;
         }
         return this.mapGenerator.map[x,y];
     }
