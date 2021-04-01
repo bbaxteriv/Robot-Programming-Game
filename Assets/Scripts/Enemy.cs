@@ -64,34 +64,34 @@ public class Enemy : MonoBehaviour
 
     public void MoveUp()
     {
-        //if (CheckTile(this.xCoord, this.yCoord+1)){
+        if (CheckTile(this.xCoord, this.yCoord+1)){
             yCoord++;
             this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        //}
+        }
     }
 
     public void MoveDown()
     {
-        //if (CheckTile(this.xCoord, this.yCoord-1)){
+        if (CheckTile(this.xCoord, this.yCoord-1)){
             yCoord--;
             this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        //}
+        }
     }
 
     public void MoveRight()
     {
-        //if (CheckTile(this.xCoord+1, this.yCoord)){
+        if (CheckTile(this.xCoord+1, this.yCoord)){
             xCoord++;
             this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        //}
+        }
     }
 
     public void MoveLeft()
     {
-        //if (CheckTile(this.xCoord-1, this.yCoord)){
+        if (CheckTile(this.xCoord-1, this.yCoord)){
             xCoord--;
             this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        //}
+        }
     }
 
     /*
@@ -129,6 +129,7 @@ public class Enemy : MonoBehaviour
         {
             return -1;
         }
-        return this.mapGenerator.map[x,y];
+        return 1;
+        //return this.mapGenerator.map[x,y];
     }
 }

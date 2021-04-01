@@ -77,4 +77,8 @@ public class UIController : MonoBehaviour
     {
         this.objectManager.SpawnRobot(0, 0);
     }
+    public void DestroyRobotButtonClicked()
+    {
+        this.objectManager.DestroyRobot();
+    }
 }
