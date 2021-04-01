@@ -1006,8 +1006,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'TestText
-'
+  m_Text: 'TestText '
 --- !u!222 &1061147820
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1117,6 +1116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   robotPrefab: {fileID: 8780978750039679731, guid: 01f1c65e2953a0d4ebad97679904b5c9,
+    type: 3}
+  healthBarCanvasPrefab: {fileID: 3248163428520829961, guid: 2ee7dd8063b5f724382c8baae7893188,
     type: 3}
   canvas: {fileID: 1550341477}
   objectList: []

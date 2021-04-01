@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
 Manages all the objects on the map
@@ -10,6 +11,7 @@ public class ObjectManager : MonoBehaviour
 {
     private TileMapGenerator mapGenerator;
     public GameObject robotPrefab;
+    public GameObject healthBarCanvasPrefab;
     public GameObject canvas;
     public List<GameObject> objectList = new List<GameObject>();
 
@@ -31,11 +33,14 @@ public class ObjectManager : MonoBehaviour
     public void SpawnRobot(int x, int y)
     {
         GameObject robot = Instantiate(this.robotPrefab, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
-        RobotMovement script = robot.GetComponent<RobotMovement>();
-        script.xCoord = x;
-        script.yCoord = y;
-        script.manager = this.gameObject;
-        script.canvas = this.canvas;
+        RobotMovement moveScript = robot.GetComponent<RobotMovement>();
+        RobotHealth healthScript = robot.GetComponent<RobotHealth>();
+        GameObject healthBarCanvas = Instantiate(this.healthBarCanvasPrefab, new Vector3(x, y, 0), Quaternion.identity);
+        healthScript.healthBarCanvas = healthBarCanvas;
+        moveScript.xCoord = x;
+        moveScript.yCoord = y;
+        moveScript.manager = this.gameObject;
+        moveScript.canvas = this.canvas;
         this.objectList.Add(robot);
     }
 }
