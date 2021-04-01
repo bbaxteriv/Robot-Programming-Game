@@ -45,7 +45,40 @@ public class TileMapGenerator : MonoBehaviour
                 //in unity, the first one is a stone tile, this will change, but until we know how many tiles we need its hard to choose.
                 tileValue = 32;
               } else if (map[i,j] == 2){
-                tileValue = 33;
+                string checker = ListCloseSimilarTiles(i,j,2);
+                if (checker == ""){
+                  tileValue = 33;
+                } else if (checker == "L") {
+                  tileValue = 34;
+                } else if (checker == "R") {
+                  tileValue = 35;
+                } else if (checker == "B") {
+                  tileValue = 36;
+                } else if (checker == "T") {
+                  tileValue = 37;
+                } else if (checker == "LB") {
+                  tileValue = 38;
+                } else if (checker == "RB") {
+                  tileValue = 39;
+                } else if (checker == "RT") {
+                  tileValue = 40;
+                } else if (checker == "LT") {
+                  tileValue = 41;
+                } else if (checker == "LRB") {
+                  tileValue = 42;
+                } else if (checker == "RBT") {
+                  tileValue = 43;
+                } else if (checker == "LRT") {
+                  tileValue = 44;
+                } else if (checker == "LBT") {
+                  tileValue = 45;
+                } else if (checker == "LR") {
+                  tileValue = 46;
+                } else if (checker == "TB") {
+                  tileValue = 47;
+                } else if (checker == "LRTB") {
+                  tileValue = 48;
+                }
               } else {
               /*  int myRand = Random.Range(0,100);
                 Debug.Log(myRand);
@@ -169,6 +202,30 @@ public class TileMapGenerator : MonoBehaviour
       return tileCount;
     }
 
+    string ListCloseSimilarTiles(int x, int y, int value) {
+      string toReturn = "";
+      if (x != 0) {
+        if (map[x-1,y] == value) {
+          toReturn = toReturn + "L";
+        }
+      }
+      if (x != rows-1) {
+        if (map[x+1,y] == value) {
+          toReturn = toReturn +"R";
+        }
+      }
+      if (y != 0) {
+        if (map[x,y-1] == value) {
+          toReturn = toReturn + "B";
+        }
+      }
+      if (y != columns-1) {
+        if (map[x,y+1] == value) {
+          toReturn= toReturn + "T";
+        }
+      }
+      return toReturn;
+    }
     // Update is called once per frame
     void Update()
     {
