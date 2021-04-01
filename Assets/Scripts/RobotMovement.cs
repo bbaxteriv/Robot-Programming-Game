@@ -21,7 +21,7 @@ public class RobotMovement : MonoBehaviour
     // to access map generator script
     public GameObject manager;
     private TileMapGenerator mapGenerator;
-    private bool selected;
+    public bool selected;
     public GameObject canvas;
     private UIController programController;
 
