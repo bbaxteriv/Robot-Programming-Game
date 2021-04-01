@@ -1007,7 +1007,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'TestText
-
 '
 --- !u!222 &1061147820
 CanvasRenderer:
