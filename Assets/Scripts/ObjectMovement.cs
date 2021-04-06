@@ -22,7 +22,7 @@ abstract public class ObjectMovement : MonoBehaviour
     public GameObject manager;
     protected TileMapGenerator mapGenerator;
     // if the object is selected
-    protected bool selected;
+    public bool selected;
     // to access the UI controller script
     public GameObject canvas;
     protected UIController programController;
