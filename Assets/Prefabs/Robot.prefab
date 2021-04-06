@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8780978750039679728}
   - component: {fileID: 2575641050346956689}
   - component: {fileID: 1999515920450239589}
+  - component: {fileID: 5903384589844442994}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Untagged
@@ -104,6 +105,7 @@ MonoBehaviour:
   rightFrame: {fileID: 21300000, guid: 63a766a7f307f49409668b84d9dd5cb0, type: 3}
   leftFrame: {fileID: 21300000, guid: 52d98e63e7cbd42588ef0271b3435a31, type: 3}
   manager: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!61 &1999515920450239589
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,3 +132,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5903384589844442994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8780978750039679731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6bc93732b833a04a80a11f9a32b312e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 60
+  currentHealth: 0
+  healthBar: {fileID: 0}
