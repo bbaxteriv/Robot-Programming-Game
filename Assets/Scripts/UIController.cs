@@ -12,8 +12,14 @@ public class UIController : MonoBehaviour
     public GameObject RunButton;
     public GameObject Robot;
     public GameObject manager;
-    private ObjectManager objectManager;
+    public ObjectManager objectManager;
     public Text SequenceText;
+    public Text ResourceText;
+    public GameObject DestroyRobotButton;
+    public GameObject Spawner;
+
+    public int SpawnCost = 5;
+    public int ScrapYield = 3;
 
     private void Start()
     {
@@ -75,10 +81,17 @@ public class UIController : MonoBehaviour
     }
     public void SpawnRobotButtonClicked()
     {
-        this.objectManager.SpawnRobot(0, 0);
+        if (int.Parse(ResourceText.text.Split(' ')[2]) >= SpawnCost)
+        {
+            this.objectManager.SpawnRobot(Spawner.GetComponent<Spawner>().xCoord, Spawner.GetComponent<Spawner>().yCoord);
+            string currentResource = ResourceText.text.Split(' ')[2];
+            ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) - SpawnCost);
+        }
     }
     public void DestroyRobotButtonClicked()
     {
         this.objectManager.DestroyRobot();
+        string currentResource = ResourceText.text.Split(' ')[2];
+        ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) + ScrapYield);
     }
 }

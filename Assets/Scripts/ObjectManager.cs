@@ -47,9 +47,10 @@ public class ObjectManager : MonoBehaviour
     {
         for (int i = 0; i < this.objectList.Count; i++)
         {
-            //if (this.objectList[i].RobotMovement.selected == true) {
+            if (this.objectList[i] != null && this.objectList[i].GetComponent<RobotMovement>().selected == true) {
                 Destroy(this.objectList[i]);
-            //}
+                break;
+            }
         }
     }
 }
