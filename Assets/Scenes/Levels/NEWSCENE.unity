@@ -768,16 +768,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1001053284748871679, guid: 5896ab15effb544278815b1ba1ae05fa,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
+    - target: {fileID: 92466461, guid: 5896ab15effb544278815b1ba1ae05fa, type: 3}
+      propertyPath: healthBarCanvas
+      value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1001053284748871679, guid: 5896ab15effb544278815b1ba1ae05fa,
+    - target: {fileID: 92466461, guid: 5896ab15effb544278815b1ba1ae05fa, type: 3}
+      propertyPath: healthBarCanvasPrefab
+      value: 
+      objectReference: {fileID: 3248163428520829961, guid: 2ee7dd8063b5f724382c8baae7893188,
         type: 3}
-      propertyPath: m_SortingLayerID
-      value: -105541197
-      objectReference: {fileID: 0}
     - target: {fileID: 1763246529443459317, guid: 5896ab15effb544278815b1ba1ae05fa,
         type: 3}
       propertyPath: m_RootOrder
@@ -837,21 +836,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 2976670800945515679, guid: 5896ab15effb544278815b1ba1ae05fa,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4929356944986907942, guid: 5896ab15effb544278815b1ba1ae05fa,
-        type: 3}
-      propertyPath: xCoord
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4929356944986907942, guid: 5896ab15effb544278815b1ba1ae05fa,
-        type: 3}
-      propertyPath: yCoord
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4929356944986907942, guid: 5896ab15effb544278815b1ba1ae05fa,
         type: 3}
@@ -1418,6 +1402,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+  m_Text: 
 --- !u!222 &1061147820
 CanvasRenderer:
   m_ObjectHideFlags: 0
