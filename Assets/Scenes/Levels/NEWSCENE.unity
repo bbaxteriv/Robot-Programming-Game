@@ -1418,11 +1418,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-<<<<<<< HEAD
-  m_Text: 'TestText '
-=======
-  m_Text: Programming Panel
->>>>>>> 741d1bc1909faa310ab2df8e2fa1714af08db712
+  m_Text: 
 --- !u!222 &1061147820
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1517,9 +1513,9 @@ MonoBehaviour:
   seed: 
   useRandomSeed: 1
   numTilesToKeep: 1
-  randomFillPercent: 12
-  randomWaterPercent: 38
-  flowerAppearance: 38
+  randomFillPercent: 23
+  randomWaterPercent: 18
+  flowerAppearance: 77
 --- !u!4 &1295519527
 Transform:
   m_ObjectHideFlags: 0
