@@ -2174,9 +2174,10 @@ MonoBehaviour:
   RunButton: {fileID: 2005842560}
   Robot: {fileID: 0}
   manager: {fileID: 1295519525}
+  objectManager: {fileID: 0}
   SequenceText: {fileID: 325718524}
   ResourceText: {fileID: 99497327}
-  DestroyRobotButton: {fileID: 0}
+  DestroyRobotButton: {fileID: 291383176}
   Spawner: {fileID: 1510030504}
   SpawnCost: 5
   ScrapYield: 3
