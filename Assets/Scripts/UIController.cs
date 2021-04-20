@@ -90,7 +90,9 @@ public class UIController : MonoBehaviour
     }
     public void DestroyRobotButtonClicked()
     {
-        this.objectManager.DestroyRobot();
+        Destroy(this.Robot.GetComponent<RobotHealth>().healthBarCanvas);
+        Destroy(this.Robot);
+        this.Robot = null;
         string currentResource = ResourceText.text.Split(' ')[2];
         ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) + ScrapYield);
     }
