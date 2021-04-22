@@ -6,36 +6,15 @@ using UnityEngine;
 Handles the movement of a user-controlled robot
 */
 
-public class RobotMovement : MonoBehaviour
+public class RobotMovement : ObjectMovement
 {
-    // (x,y) position of robot
-    public int xCoord;
-    public int yCoord;
-    // tile to Unity grid scaling constant
-    public float gridSize = 1;
-    // movement frames
-    public Sprite upFrame;
-    public Sprite downFrame;
-    public Sprite rightFrame;
-    public Sprite leftFrame;
-    // to access map generator script
-    public GameObject manager;
-    private TileMapGenerator mapGenerator;
-    public bool selected;
-    public GameObject canvas;
-    private UIController programController;
-
     /*
     Start is called before the first frame update
     */
-    void Start()
+    public override void Start()
     {
-        float posX = xCoord * gridSize;
-        float posY = yCoord * gridSize;
-        this.transform.position = new Vector2(posX, posY);
-        this.mapGenerator = this.manager.GetComponent<TileMapGenerator>();
+        base.Start();
         this.selected = false;
-        this.programController = this.canvas.GetComponent<UIController>();
     }
 
     /*
@@ -43,7 +22,7 @@ public class RobotMovement : MonoBehaviour
     Current functionality: detects arrow key presses and handles movement
     with movement frames
     */
-    void Update()
+    public override void Update()
     {
         if (this.selected)
         {
@@ -73,50 +52,7 @@ public class RobotMovement : MonoBehaviour
         this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
     }
 
-    /*
-    Moves the object up one tile, if possible
-    */
-    public void MoveUp()
-    {
-        this.GetComponent<SpriteRenderer>().sprite = upFrame;
-        if (CheckTile(this.xCoord, this.yCoord+1))
-        {
-            yCoord++;
-            this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        }
-    }
-
-    public void MoveDown()
-    {
-        this.GetComponent<SpriteRenderer>().sprite = downFrame;
-        if (CheckTile(this.xCoord, this.yCoord-1))
-        {
-            yCoord--;
-            this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        }
-    }
-
-    public void MoveRight()
-    {
-        this.GetComponent<SpriteRenderer>().sprite = rightFrame;
-        if (CheckTile(this.xCoord+1, this.yCoord))
-        {
-            xCoord++;
-            this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        }
-    }
-
-    public void MoveLeft()
-    {
-        this.GetComponent<SpriteRenderer>().sprite = leftFrame;
-        if (CheckTile(this.xCoord-1, this.yCoord))
-        {
-            xCoord--;
-            this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        }
-    }
-
-    void OnMouseDown()
+    public override void OnMouseDown()
     {
         if (!this.selected)
         {

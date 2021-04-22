@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1763246529443459317}
   - component: {fileID: 1001053284748871679}
   - component: {fileID: 4929356944986907942}
-  m_Layer: 0
+  - component: {fileID: 92466461}
+  m_Layer: 12
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -105541197
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 249230eea0d1740f58df58df278ef6a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -95,3 +96,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92033243c07cf42289af3eb716f7884a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xCoord: 0
+  yCoord: 0
+  gridSize: 1
+  manager: {fileID: 0}
+--- !u!114 &92466461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2976670800945515679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3591a46782a53b47b9436db50024d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  currentHealth: 0
+  healthBarCanvasPrefab: {fileID: 3248163428520829961, guid: 2ee7dd8063b5f724382c8baae7893188,
+    type: 3}
+  healthBarCanvas: {fileID: 0}
+  healthBar: {fileID: 0}
