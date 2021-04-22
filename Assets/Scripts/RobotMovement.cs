@@ -166,8 +166,10 @@ public class RobotMovement : MonoBehaviour
         }
         if (this.mapGenerator.map[x,y] != 0)
         {
+          Debug.Log("In conditional:" + this.mapGenerator.map[x,y]);
           return -1;
         }
+        Debug.Log(this.mapGenerator.map[x,y]);
         return this.mapGenerator.map[x,y];
     }
 }

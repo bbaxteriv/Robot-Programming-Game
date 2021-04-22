@@ -1418,6 +1418,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
+  m_Text: 
 --- !u!222 &1061147820
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1513,8 +1514,8 @@ MonoBehaviour:
   useRandomSeed: 1
   numTilesToKeep: 1
   randomFillPercent: 23
-  randomWaterPercent: 18
-  flowerAppearance: 77
+  randomWaterPercent: 60
+  flowerAppearance: 1
 --- !u!4 &1295519527
 Transform:
   m_ObjectHideFlags: 0

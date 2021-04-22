@@ -39,13 +39,15 @@ public class TileMapGenerator : MonoBehaviour
         {
             for(int j = 0; j<columns; j++)
             {
-              int tileValue=0;
-              //the 0 value in the map is assigned to the empty (or grass tile spot)
+              int tileValue = -1;
+              //  the 0 value in the map is assigned to the empty (or grass tile spot)
+              Debug.Log(map[i,j]);
               if (map[i,j] == 1) {
                 //in unity, the first one is a stone tile, this will change, but until we know how many tiles we need its hard to choose.
                 tileValue = 32;
               } else if (map[i,j] == 2){
                 string checker = ListCloseSimilarTiles(i,j,2);
+                Debug.Log(checker);
                 if (checker == ""){
                   tileValue = 33;
                 } else if (checker == "L") {
@@ -74,21 +76,12 @@ public class TileMapGenerator : MonoBehaviour
                   tileValue = 45;
                 } else if (checker == "LR") {
                   tileValue = 46;
-                } else if (checker == "TB") {
+                } else if (checker == "BT") {
                   tileValue = 47;
-                } else if (checker == "LRTB") {
+                } else if (checker == "LRBT") {
                   tileValue = 48;
                 }
               } else {
-              /*  int myRand = Random.Range(0,100);
-                Debug.Log(myRand);
-                if (myRand > flowerAppearance) {
-                    tileValue = Random.Range(0, 15);
-                    Debug.Log("gras");
-                } else {
-                    tileValue = Random.Range(16, 31);
-                    Debug.Log("flower");
-                }*/
                 tileValue = (Random.Range(1,100) > flowerAppearance)? Random.Range(0, 15): Random.Range(16, 31);
                 Debug.Log("Here");
               }
@@ -97,7 +90,9 @@ public class TileMapGenerator : MonoBehaviour
               tilePrefabIndex.Add(tileValue);
 
               Vector3 position = new Vector3(i, j, 0);
+              Debug.Log("mapvalue is " + map[i,j] + " and tile value is ");
               Debug.Log(tileValue);
+
               GameObject tile = Instantiate(tilePrefabs[tileValue], position, Quaternion.identity);
 
               tile.transform.parent = container.transform;
@@ -112,9 +107,10 @@ public class TileMapGenerator : MonoBehaviour
         map = new int[rows,columns];
         RandomFillMap();
         SmoothMap();
+        GeneratePath();
     }
 
-    //dubgging function, prints the current map to the console
+    //dubugging function, prints the current map to the console
     void CurrentMap() {
       if (!(map is null)) {
         string Map = "";
@@ -168,6 +164,39 @@ public class TileMapGenerator : MonoBehaviour
           }
       }
       map = newMap;
+
+    }
+
+    void GeneratePath() {
+    //  int tries = Mathf.Ceil(1.5 * Mathf.Sqrt(rows*rows+columns*columns));
+      int counter = 0;
+      int xPath = 0;
+      int yPath = 0;
+      System.Random random = new System.Random();
+      while (true) {
+        int direction = random.Next(0,2);
+        if (direction == 0) {//if up
+          if (yPath == columns-1) {//if the path is already an edge go down not up
+            yPath = yPath - 1;
+          } else { // else go up
+            yPath = yPath + 1;
+          }
+        }
+        if (direction == 1) {//if right
+          if (xPath == rows-1) {//if the path is already an edge left down not right
+            xPath = xPath - 1;
+          } else { // else go up
+            xPath = xPath + 1;
+          }
+        }
+        map[xPath,yPath] = 8;
+        counter++;
+        Debug.Log(counter);
+        CurrentMap();
+        if (xPath == rows-1 & yPath == columns-1) {
+          break;
+        }
+      }
 
     }
 
