@@ -118,6 +118,7 @@ abstract public class ObjectMovement : MonoBehaviour
     */
     public int GetTile(int x, int y)
     {
+        Debug.Log(this.mapGenerator.map[x,y]);
         if (x < 0 || x >= this.mapGenerator.rows)
         {
             return -1;

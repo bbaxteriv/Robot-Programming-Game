@@ -41,13 +41,13 @@ public class TileMapGenerator : MonoBehaviour
             {
               int tileValue = -1;
               //  the 0 value in the map is assigned to the empty (or grass tile spot)
-              Debug.Log(map[i,j]);
+              //Debug.Log(map[i,j]);
               if (map[i,j] == 1) {
                 //in unity, the first one is a stone tile, this will change, but until we know how many tiles we need its hard to choose.
                 tileValue = 32;
               } else if (map[i,j] == 2){
                 string checker = ListCloseSimilarTiles(i,j,2);
-                Debug.Log(checker);
+              //  Debug.Log(checker);
                 if (checker == ""){
                   tileValue = 33;
                 } else if (checker == "L") {
@@ -83,15 +83,15 @@ public class TileMapGenerator : MonoBehaviour
                 }
               } else {
                 tileValue = (Random.Range(1,100) > flowerAppearance)? Random.Range(0, 15): Random.Range(16, 31);
-                Debug.Log("Here");
+                //Debug.Log("Here");
               }
                 //set a random prefab
 
               tilePrefabIndex.Add(tileValue);
 
               Vector3 position = new Vector3(i, j, 0);
-              Debug.Log("mapvalue is " + map[i,j] + " and tile value is ");
-              Debug.Log(tileValue);
+              //Debug.Log("mapvalue is " + map[i,j] + " and tile value is ");
+            //  Debug.Log(tileValue);
 
               GameObject tile = Instantiate(tilePrefabs[tileValue], position, Quaternion.identity);
 
@@ -173,6 +173,7 @@ public class TileMapGenerator : MonoBehaviour
       int xPath = 0;
       int yPath = 0;
       System.Random random = new System.Random();
+      map[xPath,yPath]=0;
       while (true) {
         int direction = random.Next(0,2);
         if (direction == 0) {//if up
@@ -189,10 +190,10 @@ public class TileMapGenerator : MonoBehaviour
             xPath = xPath + 1;
           }
         }
-        map[xPath,yPath] = 8;
+        map[xPath,yPath] = 0;
         counter++;
-        Debug.Log(counter);
-        CurrentMap();
+        //Debug.Log(counter);
+      //  CurrentMap();
         if (xPath == rows-1 & yPath == columns-1) {
           break;
         }

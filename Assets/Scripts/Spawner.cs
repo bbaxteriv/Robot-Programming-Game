@@ -5,8 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     // (x,y) position of spawner
-    public int xCoord = 6;
-    public int yCoord = 2;
+    public int xCoord = 0;
+    public int yCoord = 0;
     // tile to Unity grid scaling constant
     public float gridSize = 1;
     // to access map generator script
@@ -70,4 +70,3 @@ public class Spawner : MonoBehaviour
         return this.mapGenerator.map[x, y];
     }
 }
-

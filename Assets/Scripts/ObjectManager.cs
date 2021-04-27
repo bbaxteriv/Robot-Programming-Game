@@ -35,6 +35,7 @@ public class ObjectManager : MonoBehaviour
         GameObject robot = Instantiate(this.robotPrefab, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
         RobotMovement moveScript = robot.GetComponent<RobotMovement>();
         RobotHealth healthScript = robot.GetComponent<RobotHealth>();
+        //robot.sortinglayer = robots;
         // GameObject healthBarCanvas = Instantiate(this.healthBarCanvasPrefab, new Vector3(x, y, 0), Quaternion.identity);
         // healthScript.healthBarCanvas = healthBarCanvas;
         moveScript.xCoord = x;

@@ -1237,6 +1237,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907441104229693320, guid: fc94482b417d64c8181340c4587b632b,
         type: 3}
+      propertyPath: xCoord
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 907441104229693320, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
+      propertyPath: yCoord
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 907441104229693320, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 1295519525}
@@ -1248,12 +1258,12 @@ PrefabInstance:
     - target: {fileID: 5664889768643809688, guid: fc94482b417d64c8181340c4587b632b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.710988
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5664889768643809688, guid: fc94482b417d64c8181340c4587b632b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2371783
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5664889768643809688, guid: fc94482b417d64c8181340c4587b632b,
         type: 3}
@@ -1299,6 +1309,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664889768643809690, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664889768643809691, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664889768643809691, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664889768643809691, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc94482b417d64c8181340c4587b632b, type: 3}
@@ -1501,6 +1531,7 @@ GameObject:
   - component: {fileID: 1295519527}
   - component: {fileID: 1295519526}
   - component: {fileID: 1295519528}
+  - component: {fileID: 1295519529}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1611,6 +1642,21 @@ MonoBehaviour:
     type: 3}
   canvas: {fileID: 1550341477}
   objectList: []
+--- !u!114 &1295519529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295519525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2ff6b9515bd9340bf71bd6f311b713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CratePrefab: {fileID: 2496208337705783587, guid: 7d605e9b73616ee4ba9957727a2806bf,
+    type: 3}
+  numberOfCrates: 11
 --- !u!1 &1301650145
 GameObject:
   m_ObjectHideFlags: 0
