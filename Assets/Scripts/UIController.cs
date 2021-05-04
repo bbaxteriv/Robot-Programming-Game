@@ -11,22 +11,35 @@ public class UIController : MonoBehaviour
     public GameObject UpButton;
     public GameObject DownButton;
     public GameObject RunButton;
+    public GameObject IfButton;
+    public GameObject EndIfButton;
     public GameObject Robot;
     public GameObject manager;
     public ObjectManager objectManager;
     public Text SequenceText;
     public Text ResourceText;
     public GameObject DestroyRobotButton;
+    public GameObject SpawnRobotButton;
     public GameObject Spawner;
+    public GameObject XYDropdown;
+    public GameObject ConditionDropdown;
+    public GameObject InputField;
+    public GameObject HealthUpgradeButton;
     public Text InputText;
+    public Text XYLabel;
+    public Text ConditionLabel;
+
+
 
     public int SpawnCost = 5;
     public int ScrapYield = 3;
+    public int UpgradeHealthCost = 5;
 
     private void Start()
     {
         SequenceText.text = "SEQUENCE:";
         this.objectManager = this.manager.GetComponent<ObjectManager>();
+        ProgrammingButtonClicked();
     }
 
     private void StringToMovement(string movementString)
@@ -62,14 +75,78 @@ public class UIController : MonoBehaviour
             
             if (SequenceArray[i][0] == 'I')
             {
-                string[] numberGet = SequenceArray[i].Split('<');
-                if (Int32.Parse(numberGet[1]) > Robot.GetComponent<RobotMovement>().xCoord)
+                string[] numberGet = SequenceArray[i].Split(':');
+                if (numberGet[1][0] == 'Y')
                 {
-                    ifState = true;
+                    if (numberGet[1][1] == '=')
+                    {
+                        if (Int32.Parse(numberGet[1].Substring(2)) == Robot.GetComponent<RobotMovement>().yCoord)
+                        {
+                            ifState = true;
+                        }
+                        else
+                        {
+                            ifState = false;
+                        }
+                    }
+                    else if (numberGet[1][1] == '>')
+                    {
+                        if (Int32.Parse(numberGet[1].Substring(2)) < Robot.GetComponent<RobotMovement>().yCoord)
+                        {
+                            ifState = true;
+                        }
+                        else
+                        {
+                            ifState = false;
+                        }
+                    }
+                    else if (numberGet[1][1] == '<')
+                    {
+                        if (Int32.Parse(numberGet[1].Substring(2)) > Robot.GetComponent<RobotMovement>().yCoord)
+                        {
+                            ifState = true;
+                        }
+                        else
+                        {
+                            ifState = false;
+                        }
+                    }
                 }
-                else
+                else if (numberGet[1][0] == 'X')
                 {
-                    ifState = false;
+                    if (numberGet[1][1] == '=')
+                    {
+                        if (Int32.Parse(numberGet[1].Substring(2)) == Robot.GetComponent<RobotMovement>().xCoord)
+                        {
+                            ifState = true;
+                        }
+                        else
+                        {
+                            ifState = false;
+                        }
+                    }
+                    else if (numberGet[1][1] == '>')
+                    {
+                        if (Int32.Parse(numberGet[1].Substring(2)) < Robot.GetComponent<RobotMovement>().xCoord)
+                        {
+                            ifState = true;
+                        }
+                        else
+                        {
+                            ifState = false;
+                        }
+                    }
+                    else if (numberGet[1][1] == '<')
+                    {
+                        if (Int32.Parse(numberGet[1].Substring(2)) > Robot.GetComponent<RobotMovement>().xCoord)
+                        {
+                            ifState = true;
+                        }
+                        else
+                        {
+                            ifState = false;
+                        }
+                    }
                 }
             }
             
@@ -106,7 +183,9 @@ public class UIController : MonoBehaviour
     public void IfButtonClicked()
     {
         string InputString = InputText.text;
-        SequenceText.text += " If:x<"+InputString;
+        string XYString = XYLabel.text;
+        string conditionString = ConditionLabel.text;
+        SequenceText.text += " If:"+XYString+conditionString+InputString;
     }
     public void EndIfButtonClicked()
     {
@@ -136,5 +215,50 @@ public class UIController : MonoBehaviour
         this.Robot = null;
         string currentResource = ResourceText.text.Split(' ')[2];
         ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) + ScrapYield);
+    }
+    public void ProgrammingButtonClicked()
+    {
+        UpButton.SetActive(true);
+        DownButton.SetActive(true);
+        RightButton.SetActive(true);
+        LeftButton.SetActive(true);
+        RunButton.SetActive(true);
+        IfButton.SetActive(true);
+        EndIfButton.SetActive(true);
+        DestroyRobotButton.SetActive(true);
+        SpawnRobotButton.SetActive(true);
+        XYDropdown.SetActive(true);
+        ConditionDropdown.SetActive(true);
+        InputField.SetActive(true);
+        SequenceText.gameObject.SetActive(true);
+
+        HealthUpgradeButton.SetActive(false);
+    }
+    public void UpgradesButtonClicked()
+    {
+        UpButton.SetActive(false);
+        DownButton.SetActive(false);
+        RightButton.SetActive(false);
+        LeftButton.SetActive(false);
+        RunButton.SetActive(false);
+        IfButton.SetActive(false);
+        EndIfButton.SetActive(false);
+        DestroyRobotButton.SetActive(false);
+        SpawnRobotButton.SetActive(false);
+        XYDropdown.SetActive(false);
+        ConditionDropdown.SetActive(false);
+        InputField.SetActive(false);
+        SequenceText.gameObject.SetActive(false);
+
+        HealthUpgradeButton.SetActive(true);
+    }
+    public void UpgradeHealthButtonClicked()
+    { 
+        if (int.Parse(ResourceText.text.Split(' ')[2]) >= UpgradeHealthCost)
+        {
+            string currentResource = ResourceText.text.Split(' ')[2];
+            ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) - UpgradeHealthCost);
+            //add the functionality here
+        }
     }
 }
