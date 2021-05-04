@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class UIController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class UIController : MonoBehaviour
     public Text ResourceText;
     public GameObject DestroyRobotButton;
     public GameObject Spawner;
+    public Text InputText;
 
     public int SpawnCost = 5;
     public int ScrapYield = 3;
@@ -27,31 +29,61 @@ public class UIController : MonoBehaviour
         this.objectManager = this.manager.GetComponent<ObjectManager>();
     }
 
+    private void StringToMovement(string movementString)
+    {
+        if (movementString == "Right,")
+        {
+            Robot.GetComponent<RobotMovement>().MoveRight();
+        }
+        else if (movementString == "Left,")
+        {
+            Robot.GetComponent<RobotMovement>().MoveLeft();
+        }
+        else if (movementString == "Down,")
+        {
+            Robot.GetComponent<RobotMovement>().MoveDown();
+        }
+        else if (movementString == "Up,")
+        {
+            Robot.GetComponent<RobotMovement>().MoveUp();
+        }
+    }
+
     //does time things
     IEnumerator MyCoroutine()
     {
         string SequenceString = SequenceText.text;
         string[] SequenceArray = SequenceString.Split(' ');
 
+        bool ifState = true;
+
         for (int i = 1; i < SequenceArray.Length; i++)
         {
-            if (SequenceArray[i] == "Right,")
+            
+            if (SequenceArray[i][0] == 'I')
             {
-                Robot.GetComponent<RobotMovement>().MoveRight();
+                string[] numberGet = SequenceArray[i].Split('<');
+                if (Int32.Parse(numberGet[1]) > Robot.GetComponent<RobotMovement>().xCoord)
+                {
+                    ifState = true;
+                }
+                else
+                {
+                    ifState = false;
+                }
             }
-            else if (SequenceArray[i] == "Left,")
+            
+            else if (SequenceArray[i][0] == 'E')
             {
-                Robot.GetComponent<RobotMovement>().MoveLeft();
+                ifState = true;
             }
-            else if (SequenceArray[i] == "Down,")
+            else if (ifState == true)
             {
-                Robot.GetComponent<RobotMovement>().MoveDown();
+                StringToMovement(SequenceArray[i]);
+                yield return new WaitForSeconds(0.5f);
             }
-            else if (SequenceArray[i] == "Up,")
-            {
-                Robot.GetComponent<RobotMovement>().MoveUp();
-            }
-            yield return new WaitForSeconds(0.5f);
+            
+            
         }
     }
 
@@ -70,6 +102,15 @@ public class UIController : MonoBehaviour
     public void DownButtonClicked()
     {
         SequenceText.text += " Down,";
+    }
+    public void IfButtonClicked()
+    {
+        string InputString = InputText.text;
+        SequenceText.text += " If:x<"+InputString;
+    }
+    public void EndIfButtonClicked()
+    {
+        SequenceText.text += " EndIf,";
     }
     public void RunButtonClicked()
     {
