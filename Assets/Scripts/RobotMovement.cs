@@ -8,6 +8,7 @@ Handles the movement of a user-controlled robot
 
 public class RobotMovement : ObjectMovement
 {
+    public string SequenceString = "Right, Left, Right, Left, Right,";
     /*
     Start is called before the first frame update
     */
