@@ -67,11 +67,38 @@ public class RobotMovement : ObjectMovement, IResettable
     }
 
     [Command]
-    void Move(int amount)
+    void Move_Left(int amount)
     {
         for (int i = 0; i < amount; i++)
         {
             MoveLeft();
+        }
+    }
+
+    [Command]
+    void Move_Down(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            MoveDown();
+        }
+    }
+
+    [Command]
+    void Move_Right(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            MoveRight();
+        }
+    }
+
+    [Command]
+    void Move_Up(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            MoveUp();
         }
     }
 
@@ -81,23 +108,10 @@ public class RobotMovement : ObjectMovement, IResettable
     }
 
     /*
-    Teleport the robot to position (x,y), if possible
-    */
-    void Teleport(int x, int y)
-    {
-        if (CheckTile(x, y))
-        {
-            this.xCoord = x;
-            this.yCoord = y;
-            this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
-        }
-    }
-
-    /*
     Checks if a tile can be occupied by a robot
     currently: tiles that can't be occupied are not in map bounds
     */
-    bool CheckTile(int x, int y)
+    public override bool CheckTile(int x, int y)
     {
         return (GetTile(x, y) >= 0);
     }
@@ -105,7 +119,7 @@ public class RobotMovement : ObjectMovement, IResettable
     /*
     Returns the tile index at the position (x,y)
     */
-    int GetTile(int x, int y)
+    public override int GetTile(int x, int y)
     {
         if (x < 0 || x >= this.mapGenerator.rows)
         {
@@ -117,10 +131,10 @@ public class RobotMovement : ObjectMovement, IResettable
         }
         if (this.mapGenerator.map[x,y] != 0)
         {
-          Debug.Log("In conditional:" + this.mapGenerator.map[x,y]);
-          return -1;
+            // Debug.Log("In conditional:" + this.mapGenerator.map[x,y]);
+            return -1;
         }
-        Debug.Log(this.mapGenerator.map[x,y]);
+        // Debug.Log(this.mapGenerator.map[x,y]);
         return this.mapGenerator.map[x,y];
     }
 }
