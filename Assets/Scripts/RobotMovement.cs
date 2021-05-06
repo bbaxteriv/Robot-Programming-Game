@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Blocker;
 
 /*
 Handles the movement of a user-controlled robot
 */
 
-public class RobotMovement : ObjectMovement
+public class RobotMovement : ObjectMovement, IResettable
 {
     /*
     Start is called before the first frame update
@@ -63,6 +64,20 @@ public class RobotMovement : ObjectMovement
                 this.programController.Robot = gameObject;
             }
         }
+    }
+
+    [Command]
+    void Move(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            MoveLeft();
+        }
+    }
+
+    public void Reset()
+    {
+        Teleport(1, 1);
     }
 
     /*
