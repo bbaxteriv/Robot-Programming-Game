@@ -13,14 +13,6 @@ public class RobotMovement : ObjectMovement, IResettable
     /*
     Start is called before the first frame update
     */
-    public GameObject mycanvas;
-
-    void Awake()
-    {
-      mycanvas = GameObject.FindGameObjectWithTag("canvas");
-      mycanvas.GetComponent<UIController>().AddCrateResource();
-    }
-
     public override void Start()
     {
         base.Start();
@@ -39,22 +31,18 @@ public class RobotMovement : ObjectMovement, IResettable
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 MoveUp();
-                CrateCheck();
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 MoveDown();
-                CrateCheck();
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 MoveRight();
-                CrateCheck();
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 MoveLeft();
-                CrateCheck();
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -65,7 +53,7 @@ public class RobotMovement : ObjectMovement, IResettable
         }
         this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
     }
-
+    
     public override void OnMouseDown()
     {
         if (!this.selected)
@@ -144,24 +132,10 @@ public class RobotMovement : ObjectMovement, IResettable
         }
         if (this.mapGenerator.map[x,y] != 0)
         {
-<<<<<<< HEAD
-          return -1;
-=======
             // Debug.Log("In conditional:" + this.mapGenerator.map[x,y]);
             return -1;
->>>>>>> 9f6b792b3871967ee2dfe27ebdadb04f3ec54be1
         }
         // Debug.Log(this.mapGenerator.map[x,y]);
         return this.mapGenerator.map[x,y];
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-      Debug.Log("collided");
-      Destroy(other.gameObject);
-      // this is where the code to add scrap metal goes.
-
-
     }
 }

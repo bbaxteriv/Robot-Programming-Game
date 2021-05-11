@@ -33,11 +33,7 @@ public class UIController : MonoBehaviour
 
     public int SpawnCost = 5;
     public int ScrapYield = 3;
-<<<<<<< HEAD
-    public int CrateYield = 2;
-=======
     public int UpgradeHealthCost = 5;
->>>>>>> 9f6b792b3871967ee2dfe27ebdadb04f3ec54be1
 
     private void Start()
     {
@@ -220,13 +216,6 @@ public class UIController : MonoBehaviour
         string currentResource = ResourceText.text.Split(' ')[2];
         ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) + ScrapYield);
     }
-<<<<<<< HEAD
-    public void AddCrateResource()
-    {
-      Debug.Log("Adding Crate");
-      string currentResource = ResourceText.text.Split(' ')[2];
-      ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) + CrateYield);
-=======
     public void ProgrammingButtonClicked()
     {
         UpButton.SetActive(true);
@@ -271,6 +260,5 @@ public class UIController : MonoBehaviour
             ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) - UpgradeHealthCost);
             //add the functionality here
         }
->>>>>>> 9f6b792b3871967ee2dfe27ebdadb04f3ec54be1
     }
 }
