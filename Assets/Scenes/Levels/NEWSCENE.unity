@@ -1607,8 +1607,8 @@ MonoBehaviour:
   seed: 
   useRandomSeed: 1
   numTilesToKeep: 1
-  randomFillPercent: 23
-  randomWaterPercent: 60
+  randomFillPercent: 5
+  randomWaterPercent: 100
   flowerAppearance: 1
 --- !u!4 &1295519527
 Transform:
@@ -1657,6 +1657,9 @@ MonoBehaviour:
   CratePrefab: {fileID: 2496208337705783587, guid: 7d605e9b73616ee4ba9957727a2806bf,
     type: 3}
   numberOfCrates: 11
+  crateValue: 0
+  crateXCoord: 0
+  crateYCoord: 0
 --- !u!1 &1301650145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,7 +2108,7 @@ GameObject:
   - component: {fileID: 1550341482}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2227,6 +2230,7 @@ MonoBehaviour:
   Spawner: {fileID: 1510030504}
   SpawnCost: 5
   ScrapYield: 3
+  CrateYield: 2
 --- !u!1 &1567057349
 GameObject:
   m_ObjectHideFlags: 0

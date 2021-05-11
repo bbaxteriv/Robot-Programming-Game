@@ -26,6 +26,8 @@ abstract public class ObjectMovement : MonoBehaviour
     // to access the UI controller script
     public GameObject canvas;
     protected UIController programController;
+    // to access the crate placement script
+    public CratePlace cratePlace;
 
     /*
     Start is called before the first frame update
@@ -37,6 +39,7 @@ abstract public class ObjectMovement : MonoBehaviour
         this.transform.position = new Vector2(posX, posY);
         this.mapGenerator = this.manager.GetComponent<TileMapGenerator>();
         this.programController = this.canvas.GetComponent<UIController>();
+        this.cratePlace =this.manager.GetComponent<CratePlace>();
     }
 
     /*
@@ -133,4 +136,13 @@ abstract public class ObjectMovement : MonoBehaviour
         }
         return this.mapGenerator.map[x,y];
     }
+
+    public void CrateCheck() {
+      if (this.cratePlace.crateMap[this.xCoord, this.yCoord]) {
+        this.cratePlace.crateMap[this.xCoord, this.yCoord] = false;  
+      }
+    }
+
+
+
 }

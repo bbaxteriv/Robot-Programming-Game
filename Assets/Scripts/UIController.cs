@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
 
     public int SpawnCost = 5;
     public int ScrapYield = 3;
+    public int CrateYield = 2;
 
     private void Start()
     {
@@ -95,5 +96,11 @@ public class UIController : MonoBehaviour
         this.Robot = null;
         string currentResource = ResourceText.text.Split(' ')[2];
         ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) + ScrapYield);
+    }
+    public void AddCrateResource()
+    {
+      Debug.Log("Adding Crate");
+      string currentResource = ResourceText.text.Split(' ')[2];
+      ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) + CrateYield);
     }
 }

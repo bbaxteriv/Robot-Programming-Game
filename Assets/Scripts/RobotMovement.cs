@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
 Handles the movement of a user-controlled robot
@@ -11,6 +12,14 @@ public class RobotMovement : ObjectMovement
     /*
     Start is called before the first frame update
     */
+    public GameObject mycanvas;
+
+    void Awake()
+    {
+      mycanvas = GameObject.FindGameObjectWithTag("canvas");
+      mycanvas.GetComponent<UIController>().AddCrateResource();
+    }
+
     public override void Start()
     {
         base.Start();
@@ -29,18 +38,22 @@ public class RobotMovement : ObjectMovement
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 MoveUp();
+                CrateCheck();
             }
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 MoveDown();
+                CrateCheck();
             }
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 MoveRight();
+                CrateCheck();
             }
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 MoveLeft();
+                CrateCheck();
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -102,10 +115,19 @@ public class RobotMovement : ObjectMovement
         }
         if (this.mapGenerator.map[x,y] != 0)
         {
-          Debug.Log("In conditional:" + this.mapGenerator.map[x,y]);
           return -1;
         }
         Debug.Log(this.mapGenerator.map[x,y]);
         return this.mapGenerator.map[x,y];
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+      Debug.Log("collided");
+      Destroy(other.gameObject);
+      // this is where the code to add scrap metal goes.
+
+
     }
 }
