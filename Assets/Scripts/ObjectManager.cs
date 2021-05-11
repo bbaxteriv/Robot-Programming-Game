@@ -11,6 +11,7 @@ public class ObjectManager : MonoBehaviour
 {
     private TileMapGenerator mapGenerator;
     public GameObject robotPrefab;
+    public GameObject enemyPrefab;
     public GameObject healthBarCanvasPrefab;
     public GameObject canvas;
     public List<GameObject> objectList = new List<GameObject>();
@@ -19,12 +20,13 @@ public class ObjectManager : MonoBehaviour
     void Start()
     {
         this.mapGenerator = this.gameObject.GetComponent<TileMapGenerator>();
+        //SpawnEnemy(1, 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+    
     }
 
     /*
@@ -53,5 +55,19 @@ public class ObjectManager : MonoBehaviour
                 break;
             }
         }
+    }
+    public void SpawnEnemy(int x, int y)
+    {
+        GameObject enemy = Instantiate(this.enemyPrefab, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
+        //EnemyMovement moveScript = enemy.GetComponent<Enemy>();
+        EnemyHealth healthScript = enemy.GetComponent<EnemyHealth>();
+        //robot.sortinglayer = robots;
+        // GameObject healthBarCanvas = Instantiate(this.healthBarCanvasPrefab, new Vector3(x, y, 0), Quaternion.identity);
+        // healthScript.healthBarCanvas = healthBarCanvas;
+        //moveScript.xCoord = x;
+        //moveScript.yCoord = y;
+        //moveScript.manager = this.gameObject;
+        //moveScript.canvas = this.canvas;
+        //this.objectList.Add(enemy);
     }
 }
