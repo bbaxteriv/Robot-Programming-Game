@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,9 +20,9 @@ namespace Blocker
             commandObject = commandObj;
             MethodInfo = info;
             sequencer = seq;
-            nameText.text = info.Name;
-            print("here");
-            print(nameText.text);
+            String blockNameString = info.Name;
+            blockNameString = blockNameString.Replace('_', ' ');
+            nameText.text = blockNameString;
         }
 
         /// <summary>
