@@ -108,7 +108,7 @@ abstract public class ObjectMovement : MonoBehaviour
     Checks if a tile can be occupied by a robot
     currently: tiles that can't be occupied are not in map bounds
     */
-    public bool CheckTile(int x, int y)
+    public virtual bool CheckTile(int x, int y)
     {
         return (GetTile(x, y) >= 0);
     }
@@ -116,9 +116,9 @@ abstract public class ObjectMovement : MonoBehaviour
     /*
     Returns the tile index at the position (x,y)
     */
-    public int GetTile(int x, int y)
+    public virtual int GetTile(int x, int y)
     {
-        Debug.Log(this.mapGenerator.map[x,y]);
+        // Debug.Log(this.mapGenerator.map[x,y]);
         if (x < 0 || x >= this.mapGenerator.rows)
         {
             return -1;
