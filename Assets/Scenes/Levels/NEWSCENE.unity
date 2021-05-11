@@ -3647,6 +3647,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robotPrefab: {fileID: 8780978750039679731, guid: 01f1c65e2953a0d4ebad97679904b5c9,
     type: 3}
+  enemyPrefab: {fileID: 2976670800945515679, guid: 5896ab15effb544278815b1ba1ae05fa,
+    type: 3}
   healthBarCanvasPrefab: {fileID: 3248163428520829961, guid: 2ee7dd8063b5f724382c8baae7893188,
     type: 3}
   canvas: {fileID: 1550341477}
@@ -4793,6 +4795,7 @@ MonoBehaviour:
   ConditionLabel: {fileID: 993419709}
   SpawnCost: 5
   ScrapYield: 3
+  UpgradeHealthCost: 5
 --- !u!1 &1566151459
 GameObject:
   m_ObjectHideFlags: 0

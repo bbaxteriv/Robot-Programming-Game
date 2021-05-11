@@ -53,7 +53,7 @@ public class RobotMovement : ObjectMovement, IResettable
         }
         this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
     }
-
+    
     public override void OnMouseDown()
     {
         if (!this.selected)
