@@ -29,7 +29,9 @@ namespace Blocker
 
         public void Initialize(MethodInfo info, SelectionBlock selected)
         {
-            nameText.text = info.Name;
+            String blockNameString = info.Name;
+            blockNameString = blockNameString.Replace('_', ' ');
+            nameText.text = blockNameString;
             SelectedBlock = selected;
 
             /* Iterate through parameters here and construct a new block

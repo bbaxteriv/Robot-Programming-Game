@@ -15,10 +15,13 @@ public class CameraScript : MonoBehaviour
     private void Update()
     {
         // When RMB clicked get mouse click position and set panning to true
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !panning)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !panning)
         {
-            mouseClickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            panning = true;
+            if (Input.mousePosition.x <= 425)
+            {
+                mouseClickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                panning = true;
+            }
         }
         // If RMB is already clicked, move the camera following the mouse position update
         if (panning)
@@ -29,7 +32,7 @@ public class CameraScript : MonoBehaviour
         }
 
         // If RMB is released, stop moving the camera
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetKeyUp(KeyCode.Mouse1))
             panning = false;
     }
 }

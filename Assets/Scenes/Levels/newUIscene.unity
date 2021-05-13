@@ -1619,7 +1619,10 @@ MonoBehaviour:
   commandObject: {fileID: 1745681840}
   selectionBlockPrefab: {fileID: 6032574321932814202, guid: 0ff97caa43947364c86cafdb2019dc70,
     type: 3}
+  navigationBlockPrefab: {fileID: 698615393998671105, guid: 13de9cbac3f61e94e9c1f23c9c6ef6fd,
+    type: 3}
   sequencer: {fileID: 1923734619}
+  allBlocks: []
 --- !u!114 &838436370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2209,6 +2212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robotPrefab: {fileID: 8780978750039679731, guid: 01f1c65e2953a0d4ebad97679904b5c9,
     type: 3}
+  enemyPrefab: {fileID: 0}
   healthBarCanvasPrefab: {fileID: 3248163428520829961, guid: 2ee7dd8063b5f724382c8baae7893188,
     type: 3}
   canvas: {fileID: 1550341477}
@@ -2907,15 +2911,26 @@ MonoBehaviour:
   UpButton: {fileID: 118787893}
   DownButton: {fileID: 1406293028}
   RunButton: {fileID: 2005842560}
+  IfButton: {fileID: 0}
+  EndIfButton: {fileID: 0}
   Robot: {fileID: 0}
   manager: {fileID: 1295519525}
   objectManager: {fileID: 0}
   SequenceText: {fileID: 325718524}
   ResourceText: {fileID: 99497327}
   DestroyRobotButton: {fileID: 291383176}
+  SpawnRobotButton: {fileID: 0}
   Spawner: {fileID: 1510030504}
+  XYDropdown: {fileID: 0}
+  ConditionDropdown: {fileID: 0}
+  InputField: {fileID: 0}
+  HealthUpgradeButton: {fileID: 0}
+  InputText: {fileID: 0}
+  XYLabel: {fileID: 0}
+  ConditionLabel: {fileID: 0}
   SpawnCost: 5
   ScrapYield: 3
+  UpgradeHealthCost: 5
 --- !u!1 &1567057349
 GameObject:
   m_ObjectHideFlags: 0
