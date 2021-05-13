@@ -3611,14 +3611,14 @@ MonoBehaviour:
   - {fileID: 2831911157916367843, guid: d06f33133db3d3b48b864ad457e262da, type: 3}
   - {fileID: 2831911157916367843, guid: e6f36a27d16bcab45900e342a530d4ff, type: 3}
   container: {fileID: 826668788}
-  rows: 40
-  columns: 40
+  rows: 8
+  columns: 8
   seed: 
   useRandomSeed: 1
   numTilesToKeep: 1
-  randomFillPercent: 23
-  randomWaterPercent: 60
-  flowerAppearance: 1
+  randomFillPercent: 0
+  randomWaterPercent: 0
+  flowerAppearance: 30
 --- !u!4 &1295519527
 Transform:
   m_ObjectHideFlags: 0

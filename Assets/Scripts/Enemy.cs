@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     // to access map generator script
     public GameObject manager;
     private TileMapGenerator mapGenerator;
+    private EnemyHealth enemyHealth;
 
     /*
     Start is called before the first frame update
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
         float posY = yCoord * gridSize;
         this.transform.position = new Vector2(posX, posY);
         this.mapGenerator = this.manager.GetComponent<TileMapGenerator>();
+        this.enemyHealth = this.gameObject.GetComponent<EnemyHealth>();
         StartCoroutine(EnemyCoroutine());
     }
 
@@ -131,5 +133,21 @@ public class Enemy : MonoBehaviour
         }
         return 1;
         //return this.mapGenerator.map[x,y];
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+      Debug.Log(other);
+      if (other.ToString() == "Robot(Clone) (UnityEngine.BoxCollider2D)")
+      {
+        Debug.Log("its a robot!");
+        enemyHealth.TakeDamage(15);
+        //code needs to go here to increase scrap metal
+      }
+
+
+      // this is where the code to add scrap metal goes.
+
+
     }
 }

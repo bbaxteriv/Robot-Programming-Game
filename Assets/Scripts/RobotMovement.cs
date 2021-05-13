@@ -9,6 +9,8 @@ Handles the movement of a user-controlled robot
 
 public class RobotMovement : ObjectMovement, IResettable
 {
+    private RobotHealth robotHealth;
+
     public string SequenceString = "Right, Left, Right, Left, Right,";
     /*
     Start is called before the first frame update
@@ -16,6 +18,7 @@ public class RobotMovement : ObjectMovement, IResettable
     public override void Start()
     {
         base.Start();
+        this.robotHealth = this.gameObject.GetComponent<RobotHealth>();
         this.selected = false;
     }
 
@@ -140,8 +143,18 @@ public class RobotMovement : ObjectMovement, IResettable
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-      Debug.Log("collided");
-      Destroy(other.gameObject);
+      Debug.Log(other);
+      if (other.ToString() == "CratePrefab(Clone) (UnityEngine.BoxCollider2D)")
+      {
+        Debug.Log("its a crate!");
+        Destroy(other.gameObject);
+        //code needs to go here to increase scrap metal
+      } else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
+        Debug.Log("it's an enemy");
+        robotHealth.TakeDamage(10);
+      }
+
+
       // this is where the code to add scrap metal goes.
 
 
