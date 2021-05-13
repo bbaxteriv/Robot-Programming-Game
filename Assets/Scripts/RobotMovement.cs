@@ -53,7 +53,7 @@ public class RobotMovement : ObjectMovement, IResettable
         }
         this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
     }
-    
+
     public override void OnMouseDown()
     {
         if (!this.selected)
@@ -137,5 +137,13 @@ public class RobotMovement : ObjectMovement, IResettable
         }
         // Debug.Log(this.mapGenerator.map[x,y]);
         return this.mapGenerator.map[x,y];
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+      Debug.Log("collided");
+      Destroy(other.gameObject);
+      // this is where the code to add scrap metal goes.
+
+
     }
 }
