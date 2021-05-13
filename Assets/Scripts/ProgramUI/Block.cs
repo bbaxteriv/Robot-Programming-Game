@@ -4,10 +4,11 @@ using System;
 using System.Reflection; // for MethodInfo
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Blocker
 {
-    public class Block : MonoBehaviour
+    public class Block : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] GameObject IntFieldPrefab;
         [SerializeField] GameObject DropdownPrefab;
@@ -137,6 +138,14 @@ namespace Blocker
             size += layoutGroup.padding.left + layoutGroup.padding.right;
 
             rect.sizeDelta = new Vector2(size, rect.sizeDelta.y);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (eventData.button == PointerEventData.InputButton.Right)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
