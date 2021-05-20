@@ -143,14 +143,14 @@ public class RobotMovement : ObjectMovement, IResettable
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-      Debug.Log(other);
+      //Debug.Log(other);
       if (other.ToString() == "CratePrefab(Clone) (UnityEngine.BoxCollider2D)")
       {
-        Debug.Log("its a crate!");
+        //Debug.Log("its a crate!");
         Destroy(other.gameObject);
         //code needs to go here to increase scrap metal
       } else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
-        Debug.Log("it's an enemy");
+      //  Debug.Log("it's an enemy");
         robotHealth.TakeDamage(10);
       }
 

@@ -927,6 +927,11 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 1295519525}
+    - target: {fileID: 7553429199639172794, guid: 5896ab15effb544278815b1ba1ae05fa,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5896ab15effb544278815b1ba1ae05fa, type: 3}
 --- !u!1 &368509412
@@ -1168,6 +1173,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &497372156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2976670800945515679, guid: 5896ab15effb544278815b1ba1ae05fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 358640393}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &522227277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1440,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 907441104229693320, guid: fc94482b417d64c8181340c4587b632b,
         type: 3}
+      propertyPath: xCoord
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 907441104229693320, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
+      propertyPath: yCoord
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 907441104229693320, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 1295519525}
@@ -1440,12 +1461,12 @@ PrefabInstance:
     - target: {fileID: 5664889768643809688, guid: fc94482b417d64c8181340c4587b632b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.710988
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5664889768643809688, guid: fc94482b417d64c8181340c4587b632b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.2371783
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5664889768643809688, guid: fc94482b417d64c8181340c4587b632b,
         type: 3}
@@ -2106,6 +2127,7 @@ GameObject:
   - component: {fileID: 1295519527}
   - component: {fileID: 1295519526}
   - component: {fileID: 1295519528}
+  - component: {fileID: 1295519529}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2176,13 +2198,13 @@ MonoBehaviour:
   - {fileID: 2831911157916367843, guid: d06f33133db3d3b48b864ad457e262da, type: 3}
   - {fileID: 2831911157916367843, guid: e6f36a27d16bcab45900e342a530d4ff, type: 3}
   container: {fileID: 826668788}
-  rows: 40
-  columns: 40
+  rows: 20
+  columns: 20
   seed: 
   useRandomSeed: 1
   numTilesToKeep: 1
-  randomFillPercent: 12
-  randomWaterPercent: 38
+  randomFillPercent: 13
+  randomWaterPercent: 18
   flowerAppearance: 38
 --- !u!4 &1295519527
 Transform:
@@ -2212,11 +2234,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robotPrefab: {fileID: 8780978750039679731, guid: 01f1c65e2953a0d4ebad97679904b5c9,
     type: 3}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 497372156}
   healthBarCanvasPrefab: {fileID: 3248163428520829961, guid: 2ee7dd8063b5f724382c8baae7893188,
     type: 3}
   canvas: {fileID: 1550341477}
   objectList: []
+  EnemySpawnChance: 0.111
+--- !u!114 &1295519529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295519525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2ff6b9515bd9340bf71bd6f311b713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CratePrefab: {fileID: 2496208337705783587, guid: 7d605e9b73616ee4ba9957727a2806bf,
+    type: 3}
+  numberOfCrates: 20
 --- !u!1 &1301650145
 GameObject:
   m_ObjectHideFlags: 0

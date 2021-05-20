@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator EnemyCoroutine()
     {
-        while (1 == 1)
+        while (true)
         {
             int randomDirection = Random.Range(1, 5);
             if (randomDirection == 1)
@@ -119,28 +119,34 @@ public class Enemy : MonoBehaviour
     }
 
     /*
-    Returns the tile index at the position (x,y)
+    Returns whether the tile is passable at the position (x,y)
     */
     int GetTile(int x, int y)
     {
+        //checks if the tile's x is on the map
         if (x < 0 || x >= this.mapGenerator.rows)
         {
             return -1;
         }
+        //checks if the tile's y is on the map
         if (y < 0 || y >= this.mapGenerator.columns)
         {
             return -1;
         }
-        return 1;
-        //return this.mapGenerator.map[x,y];
+        //checks if the tile map generator is anything but a grass tile
+        if (this.mapGenerator.map[x,y] != 0)
+        {
+            return -1;
+        }
+        return this.mapGenerator.map[x,y];
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-      Debug.Log(other);
-      if (other.ToString() == "Robot(Clone) (UnityEngine.BoxCollider2D)")
+      //Debug.Log(other);
+      if (other.ToString() == "Robot(Clone) (UnityEngine.BoxCollider2D)" || other.ToString() == "Robot (UnityEngine.BoxCollider2D)")
       {
-        Debug.Log("its a robot!");
+      //  Debug.Log("its a robot! taking damage");
         enemyHealth.TakeDamage(15);
         //code needs to go here to increase scrap metal
       }

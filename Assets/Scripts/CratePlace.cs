@@ -22,14 +22,14 @@ public class CratePlace : MonoBehaviour
         int crateY = random.Next(0,this.mapGenerator.columns);
         Debug.Log(this.mapGenerator.map[crateX,crateY]);
         Debug.Log(this.mapGenerator.map[crateX,crateY]==0);
-        //if (this.mapGenerator.map[crateX,crateY]==0) {
+        if (this.mapGenerator.map[crateX,crateY]==0) {
           Vector3 position = new Vector3(crateX, crateY-(float)0.4, 0);
           GameObject Crate = Instantiate(CratePrefab, position, Quaternion.identity);
-          Debug.Log("crating");
-      //  } else {
+          //Debug.Log("crating");
+      } else {
         //  Debug.Log("check failed " + i);
-        //  i--;
-      //  }
+        i--;
+      }
       }
     }
 
