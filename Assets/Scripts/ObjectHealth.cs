@@ -37,4 +37,11 @@ abstract public class ObjectHealth : MonoBehaviour
             Destroy(healthBarCanvas);
         }
     }
+    public void Heal(int amountToHeal) {
+        currentHealth += amountToHeal;
+        if (currentHealth > maxHealth) {
+            currentHealth = maxHealth;
+        }
+        healthBar.SetHealth(currentHealth);
+    }
 }

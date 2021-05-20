@@ -148,6 +148,7 @@ public class RobotMovement : ObjectMovement, IResettable
       {
         //Debug.Log("its a crate!");
         Destroy(other.gameObject);
+        robotHealth.Heal(5);
         //code needs to go here to increase scrap metal
       } else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
       //  Debug.Log("it's an enemy");
