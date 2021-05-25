@@ -23,7 +23,7 @@ public class RobotMovement : ObjectMovement, IResettable
         this.robotHealth = this.gameObject.GetComponent<RobotHealth>();
         this.selected = false;
 
-        // textEdit = GameObject.Find("/Canvas/ResourceText").GetComponent<Text>();
+        textEdit = GameObject.Find("/ProgramWindow/ResourceText").GetComponent<Text>();
     }
 
     /*
