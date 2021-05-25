@@ -1513,6 +1513,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5664889768643809690, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc94482b417d64c8181340c4587b632b, type: 3}
 --- !u!1 &826668788
@@ -2239,7 +2244,6 @@ MonoBehaviour:
     type: 3}
   canvas: {fileID: 1550341477}
   objectList: []
-  EnemySpawnChance: 0.111
 --- !u!114 &1295519529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2254,7 +2258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CratePrefab: {fileID: 2496208337705783587, guid: 7d605e9b73616ee4ba9957727a2806bf,
     type: 3}
-  numberOfCrates: 20
+  crateDensity: 0.01575
 --- !u!1 &1301650145
 GameObject:
   m_ObjectHideFlags: 0

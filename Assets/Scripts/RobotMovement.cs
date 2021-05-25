@@ -151,18 +151,23 @@ public class RobotMovement : ObjectMovement, IResettable
       {
         //Debug.Log("its a crate!");
         Destroy(other.gameObject);
+
         
         string currentResource = textEdit.text.Split(' ')[2];
         textEdit.text = "Scrap Metal: " + (int.Parse(currentResource) + 3);
 
-            //code needs to go here to increase scrap metal
-        } else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
-      //  Debug.Log("it's an enemy");
+
+        }// else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
+
+        //robotHealth.Heal(5);
+
+      } else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
+
         robotHealth.TakeDamage(10);
       }
 
 
-      // this is where the code to add scrap metal goes.
+
 
 
     }
