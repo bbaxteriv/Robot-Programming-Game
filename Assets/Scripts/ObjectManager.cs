@@ -17,6 +17,8 @@ public class ObjectManager : MonoBehaviour
     public GameObject blockPanel;
     public List<GameObject> objectList = new List<GameObject>();
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,13 +65,6 @@ public class ObjectManager : MonoBehaviour
         GameObject enemy = Instantiate(this.enemyPrefab, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
         //EnemyMovement moveScript = enemy.GetComponent<Enemy>();
         EnemyHealth healthScript = enemy.GetComponent<EnemyHealth>();
-        //robot.sortinglayer = robots;
-        // GameObject healthBarCanvas = Instantiate(this.healthBarCanvasPrefab, new Vector3(x, y, 0), Quaternion.identity);
-        // healthScript.healthBarCanvas = healthBarCanvas;
-        //moveScript.xCoord = x;
-        //moveScript.yCoord = y;
-        //moveScript.manager = this.gameObject;
-        //moveScript.canvas = this.canvas;
-        //this.objectList.Add(enemy);
+
     }
 }

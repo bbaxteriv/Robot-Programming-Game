@@ -31,8 +31,8 @@ public class TileMapGenerator : MonoBehaviour
     void Start()
     {
         //debug message
-        Debug.Log("now mapping a " + rows.ToString() + " by " + columns.ToString() + "map with a fill of " + randomFillPercent.ToString());
-        Debug.Log("mapping with " + tilePrefabs.Length.ToString() + " types of tiles");
+      //  Debug.Log("now mapping a " + rows.ToString() + " by " + columns.ToString() + "map with a fill of " + randomFillPercent.ToString());
+        //Debug.Log("mapping with " + tilePrefabs.Length.ToString() + " types of tiles");
         GenerateMap();
         // loop through the spaces
         for(int i = 0; i<rows; i++)
@@ -41,13 +41,11 @@ public class TileMapGenerator : MonoBehaviour
             {
               int tileValue = -1;
               //  the 0 value in the map is assigned to the empty (or grass tile spot)
-              //Debug.Log(map[i,j]);
               if (map[i,j] == 1) {
                 //in unity, the first one is a stone tile, this will change, but until we know how many tiles we need its hard to choose.
                 tileValue = 32;
               } else if (map[i,j] == 2){
                 string checker = ListCloseSimilarTiles(i,j,2);
-              //  Debug.Log(checker);
                 if (checker == ""){
                   tileValue = 33;
                 } else if (checker == "L") {
@@ -83,17 +81,17 @@ public class TileMapGenerator : MonoBehaviour
                 }
               } else {
                 tileValue = (Random.Range(1,100) > flowerAppearance)? Random.Range(0, 15): Random.Range(16, 31);
-                //Debug.Log("Here");
               }
                 //set a random prefab
 
               tilePrefabIndex.Add(tileValue);
 
               Vector3 position = new Vector3(i, j, 0);
-              //Debug.Log("mapvalue is " + map[i,j] + " and tile value is ");
-            //  Debug.Log(tileValue);
 
               GameObject tile = Instantiate(tilePrefabs[tileValue], position, Quaternion.identity);
+              if (tileValue == 33) {
+                tile.transform.eulerAngles = Vector3.forward * 90 * Random.Range(0,4);
+              }
 
               tile.transform.parent = container.transform;
             }
@@ -120,9 +118,6 @@ public class TileMapGenerator : MonoBehaviour
             }
             Map = Map + "\n";
         }
-        Debug.Log("the map is currently\n" + Map);
-      } else {
-      Debug.Log("the map is currently null");
       }
     }
 
@@ -143,7 +138,6 @@ public class TileMapGenerator : MonoBehaviour
         for (int x = 0; x < rows; x ++) {
             for (int y = 0; y < columns; y ++) {
                   map[x,y] = (random.Next(0,100) < randomFillPercent)? 1: 0;
-                  //Debug.Log("map[" + x.ToString() + ", " + y.ToString() + "] is " + map[x,y].ToString());
                 }
           }
       }
@@ -192,8 +186,6 @@ public class TileMapGenerator : MonoBehaviour
         }
         map[xPath,yPath] = 0;
         counter++;
-        //Debug.Log(counter);
-      //  CurrentMap();
         if (xPath == rows-1 & yPath == columns-1) {
           break;
         }
@@ -202,10 +194,6 @@ public class TileMapGenerator : MonoBehaviour
     }
 
     int CountCloseTiles(int x, int y, int value) {
-      //Debug.Log("checking it at " + x.ToString() + ", " + y.ToString());
-      //Debug.Log("boundary at " + rows.ToString() + ", " + columns.ToString());
-      //Debug.Log("map boundary at " + map.Length.ToString() + ", " + map.Length.ToString());
-
       int tileCount = 0;
       //annoying to do the couble conditionals, but otherwise its harder to check the value of an array
       //maybe use && to prevent the second from being run?
