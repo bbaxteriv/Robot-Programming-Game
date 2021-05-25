@@ -12,7 +12,7 @@ namespace Blocker
         [SerializeField] Text nameText;
 
         public MethodInfo MethodInfo { get; private set; }
-        MonoBehaviour commandObject;
+        public MonoBehaviour commandObject;
         Sequencer sequencer;
 
         public void Initliaze(MonoBehaviour commandObj, MethodInfo info, Sequencer seq)
@@ -30,7 +30,11 @@ namespace Blocker
         /// </summary>
         public void AddToSequence()
         {
-            sequencer.AddToSequence(this);
+            if (commandObject != null)
+            {
+                sequencer.AddToSequence(this);
+            }
+            // sequencer.AddToSequence(this);
         }
 
         public void Execute(object[] parameters)

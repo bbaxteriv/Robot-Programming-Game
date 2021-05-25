@@ -53,6 +53,8 @@ public class RobotMovement : ObjectMovement, IResettable
             this.selected = false;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
             this.programController.Robot = null;
+            this.blockManager.robot = null;
+            this.blockManager.UpdateCommandObject();
         }
         this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
     }
@@ -66,6 +68,8 @@ public class RobotMovement : ObjectMovement, IResettable
                 this.selected = true;
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 1);
                 this.programController.Robot = gameObject;
+                this.blockManager.robot = this;
+                this.blockManager.UpdateCommandObject();
             }
         }
     }

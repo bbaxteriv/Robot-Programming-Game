@@ -14,6 +14,7 @@ public class ObjectManager : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject healthBarCanvasPrefab;
     public GameObject canvas;
+    public GameObject blockPanel;
     public List<GameObject> objectList = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -26,7 +27,7 @@ public class ObjectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+
     }
 
     /*
@@ -44,6 +45,7 @@ public class ObjectManager : MonoBehaviour
         moveScript.yCoord = y;
         moveScript.manager = this.gameObject;
         moveScript.canvas = this.canvas;
+        moveScript.blockPanel = this.blockPanel;
         this.objectList.Add(robot);
     }
     public void DestroyRobot()
