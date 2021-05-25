@@ -161,7 +161,8 @@ public class RobotMovement : ObjectMovement, IResettable
 
         //robotHealth.Heal(5);
 
-      } else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
+      
+    else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
 
         robotHealth.TakeDamage(10);
       }
