@@ -14,6 +14,7 @@ public class ObjectManager : MonoBehaviour
     public GameObject enemyPrefab;
     public GameObject healthBarCanvasPrefab;
     public GameObject canvas;
+    public GameObject blockPanel;
     public List<GameObject> objectList = new List<GameObject>();
 
 
@@ -59,6 +60,7 @@ public class ObjectManager : MonoBehaviour
         moveScript.yCoord = y;
         moveScript.manager = this.gameObject;
         moveScript.canvas = this.canvas;
+        moveScript.blockPanel = this.blockPanel;
         this.objectList.Add(robot);
     }
     public void DestroyRobot()

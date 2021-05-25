@@ -22,8 +22,8 @@ public class RobotMovement : ObjectMovement, IResettable
         base.Start();
         this.robotHealth = this.gameObject.GetComponent<RobotHealth>();
         this.selected = false;
-        textEdit = GameObject.Find("/Canvas/ResourceText").GetComponent<Text>();
-        
+
+        // textEdit = GameObject.Find("/Canvas/ResourceText").GetComponent<Text>();
     }
 
     /*
@@ -57,6 +57,8 @@ public class RobotMovement : ObjectMovement, IResettable
             this.selected = false;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
             this.programController.Robot = null;
+            this.blockManager.robot = null;
+            this.blockManager.UpdateCommandObject();
         }
         this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
     }
@@ -70,6 +72,8 @@ public class RobotMovement : ObjectMovement, IResettable
                 this.selected = true;
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 1);
                 this.programController.Robot = gameObject;
+                this.blockManager.robot = this;
+                this.blockManager.UpdateCommandObject();
             }
         }
     }
@@ -153,7 +157,7 @@ public class RobotMovement : ObjectMovement, IResettable
         //Debug.Log("its a crate!");
         Destroy(other.gameObject);
 
-        
+
         string currentResource = textEdit.text.Split(' ')[2];
         textEdit.text = "Scrap Metal: " + (int.Parse(currentResource) + 3);
 
@@ -162,7 +166,7 @@ public class RobotMovement : ObjectMovement, IResettable
 
         //robotHealth.Heal(5); }
 
-      
+
     else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
 
         robotHealth.TakeDamage(10);
