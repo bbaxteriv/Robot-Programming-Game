@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Blocker;
 
 /*
@@ -10,6 +11,7 @@ Handles the movement of a user-controlled robot
 public class RobotMovement : ObjectMovement, IResettable
 {
     private RobotHealth robotHealth;
+    public Text textEdit;
 
     public string SequenceString = "Right, Left, Right, Left, Right,";
     /*
@@ -20,6 +22,7 @@ public class RobotMovement : ObjectMovement, IResettable
         base.Start();
         this.robotHealth = this.gameObject.GetComponent<RobotHealth>();
         this.selected = false;
+        // textEdit = GameObject.Find("/Canvas/ResourceText").GetComponent<Text>();
     }
 
     /*
@@ -53,6 +56,8 @@ public class RobotMovement : ObjectMovement, IResettable
             this.selected = false;
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
             this.programController.Robot = null;
+            this.blockManager.robot = null;
+            this.blockManager.UpdateCommandObject();
         }
         this.transform.position = new Vector2(xCoord * gridSize, yCoord * gridSize);
     }
@@ -66,6 +71,8 @@ public class RobotMovement : ObjectMovement, IResettable
                 this.selected = true;
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.8f, 1);
                 this.programController.Robot = gameObject;
+                this.blockManager.robot = this;
+                this.blockManager.UpdateCommandObject();
             }
         }
     }
@@ -148,15 +155,24 @@ public class RobotMovement : ObjectMovement, IResettable
       {
         //Debug.Log("its a crate!");
         Destroy(other.gameObject);
-        robotHealth.Heal(5);
-        //code needs to go here to increase scrap metal
-      } else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
-      //  Debug.Log("it's an enemy");
+
+
+        string currentResource = textEdit.text.Split(' ')[2];
+        textEdit.text = "Scrap Metal: " + (int.Parse(currentResource) + 3);
+
+
+        }// else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
+
+        //robotHealth.Heal(5);
+
+
+    else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
+
         robotHealth.TakeDamage(10);
       }
 
 
-      // this is where the code to add scrap metal goes.
+
 
 
     }

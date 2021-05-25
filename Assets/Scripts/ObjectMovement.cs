@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Blocker;
 
 /*
 Handles the movement of a generic object
@@ -25,6 +26,8 @@ abstract public class ObjectMovement : MonoBehaviour
     public bool selected;
     // to access the UI controller script
     public GameObject canvas;
+    public GameObject blockPanel;
+    protected BlockManager blockManager;
     protected UIController programController;
 
     /*
@@ -36,6 +39,7 @@ abstract public class ObjectMovement : MonoBehaviour
         float posY = yCoord * gridSize;
         this.transform.position = new Vector2(posX, posY);
         this.mapGenerator = this.manager.GetComponent<TileMapGenerator>();
+        this.blockManager = this.blockPanel.GetComponent<BlockManager>();
         this.programController = this.canvas.GetComponent<UIController>();
     }
 
