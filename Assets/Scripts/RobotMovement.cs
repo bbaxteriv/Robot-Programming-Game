@@ -23,6 +23,7 @@ public class RobotMovement : ObjectMovement, IResettable
         this.robotHealth = this.gameObject.GetComponent<RobotHealth>();
         this.selected = false;
         textEdit = GameObject.Find("/Canvas/ResourceText").GetComponent<Text>();
+        
     }
 
     /*
@@ -159,7 +160,7 @@ public class RobotMovement : ObjectMovement, IResettable
 
         }// else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
 
-        //robotHealth.Heal(5);
+        //robotHealth.Heal(5); }
 
       
     else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {

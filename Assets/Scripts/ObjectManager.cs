@@ -21,8 +21,21 @@ public class ObjectManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         this.mapGenerator = this.gameObject.GetComponent<TileMapGenerator>();
+        StartCoroutine(MyCoroutine());
         //SpawnEnemy(1, 1);
+    }
+
+    IEnumerator MyCoroutine()
+    {
+        while (true)
+        { 
+            yield return new WaitForSeconds(10f);
+            int xcoord = Random.Range(3,16);
+            int ycoord = Random.Range(3,16);
+            SpawnEnemy(xcoord,ycoord);
+        }
     }
 
     // Update is called once per frame
@@ -61,8 +74,11 @@ public class ObjectManager : MonoBehaviour
     public void SpawnEnemy(int x, int y)
     {
         GameObject enemy = Instantiate(this.enemyPrefab, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
-        //EnemyMovement moveScript = enemy.GetComponent<Enemy>();
-        EnemyHealth healthScript = enemy.GetComponent<EnemyHealth>();
+        Enemy moveScript = enemy.GetComponent<Enemy>();
+        moveScript.xCoord = x;
+        moveScript.yCoord = y;
+        moveScript.manager = this.gameObject;
+        //EnemyHealth healthScript = enemy.GetComponent<EnemyHealth>();
 
     }
 }
