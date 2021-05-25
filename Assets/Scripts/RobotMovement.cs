@@ -160,14 +160,14 @@ public class RobotMovement : ObjectMovement, IResettable
 
         string currentResource = textEdit.text.Split(' ')[2];
         textEdit.text = "Scrap Metal: " + (int.Parse(currentResource) + 3);
-
+        robotHealth.Heal(5); 
 
         }// else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
 
         //robotHealth.Heal(5); }
 
 
-    else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
+        else if (other.ToString() == "Enemy(Clone) (UnityEngine.BoxCollider2D)") {
 
         robotHealth.TakeDamage(10);
       }
