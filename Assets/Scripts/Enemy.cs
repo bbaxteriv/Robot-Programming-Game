@@ -123,7 +123,7 @@ public class Enemy : MonoBehaviour
     */
     int GetTile(int x, int y)
     {
-        Debug.Log(this.mapGenerator.map[0,0]);
+        //Debug.Log(this.mapGenerator.map[0,0]);
         //checks if the tile's x is on the map
         if (x < 0 || x >= this.mapGenerator.rows)
         {
@@ -135,10 +135,10 @@ public class Enemy : MonoBehaviour
             return -1;
         }
         //checks if the tile map generator is anything but a grass tile
-        Debug.Log(x);
-        Debug.Log(y);
-        Debug.Log(this.mapGenerator.map[x,y]);
-        Debug.Log(this.mapGenerator.map[x,y] != 0);
+        //Debug.Log(x);
+        //Debug.Log(y);
+      //  Debug.Log(this.mapGenerator.map[x,y]);
+        //Debug.Log(this.mapGenerator.map[x,y] != 0);
         if (this.mapGenerator.map[x,y] != 0)
         {
             return -1;

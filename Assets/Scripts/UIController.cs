@@ -28,7 +28,7 @@ public class UIController : MonoBehaviour
     public Text InputText;
     public Text XYLabel;
     public Text ConditionLabel;
-
+    
 
 
     public int SpawnCost = 5;
@@ -207,6 +207,7 @@ public class UIController : MonoBehaviour
             string currentResource = ResourceText.text.Split(' ')[2];
             ResourceText.text = "Scrap Metal: " + (int.Parse(currentResource) - SpawnCost);
         }
+        
     }
     public void DestroyRobotButtonClicked()
     {

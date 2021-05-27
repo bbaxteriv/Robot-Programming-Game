@@ -1463,6 +1463,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   robot: {fileID: 0}
   referenceRobot: {fileID: 277783015}
+  resourceText: {fileID: 1180252363}
+  spawnCost: 5
+  scrapYield: 3
   selectionBlockPrefab: {fileID: 6032574321932814202, guid: 0ff97caa43947364c86cafdb2019dc70,
     type: 3}
   navigationBlockPrefab: {fileID: 698615393998671105, guid: 13de9cbac3f61e94e9c1f23c9c6ef6fd,
@@ -1699,6 +1702,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 907441104229693320, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
+      propertyPath: xCoord
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 907441104229693320, guid: fc94482b417d64c8181340c4587b632b,
+        type: 3}
+      propertyPath: yCoord
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 907441104229693320, guid: fc94482b417d64c8181340c4587b632b,
         type: 3}
       propertyPath: manager
@@ -1998,6 +2011,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CratePrefab: {fileID: 2496208337705783587, guid: 7d605e9b73616ee4ba9957727a2806bf,
     type: 3}
+  manager: {fileID: 964378782}
+  mapGenerator: {fileID: 0}
   crateDensity: 0.01565
   framesTillNextCrate: 5400
 --- !u!114 &964378784
@@ -2088,7 +2103,7 @@ MonoBehaviour:
   useRandomSeed: 1
   numTilesToKeep: 1
   randomFillPercent: 12
-  randomWaterPercent: 38
+  randomWaterPercent: 19
   flowerAppearance: 38
 --- !u!4 &964378786
 Transform:
@@ -2383,6 +2398,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096545512}
+  m_CullTransparentMesh: 1
+--- !u!1 &1180252361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180252362}
+  - component: {fileID: 1180252364}
+  - component: {fileID: 1180252363}
+  m_Layer: 5
+  m_Name: ResourceText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1180252362
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180252361}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1863088908}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -732, y: 541}
+  m_SizeDelta: {x: 386.315, y: 59.365}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1180252363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180252361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.85705686, g: 0.8962264, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 50
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Scrap Metal: 30'
+--- !u!222 &1180252364
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180252361}
   m_CullTransparentMesh: 1
 --- !u!1 &1301650145
 GameObject:
@@ -3498,9 +3592,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 390823653159519988, guid: 01f1c65e2953a0d4ebad97679904b5c9,
         type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1550341477}
+    - target: {fileID: 390823653159519988, guid: 01f1c65e2953a0d4ebad97679904b5c9,
+        type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 964378782}
+    - target: {fileID: 390823653159519988, guid: 01f1c65e2953a0d4ebad97679904b5c9,
+        type: 3}
+      propertyPath: blockPanel
+      value: 
+      objectReference: {fileID: 638697230}
     - target: {fileID: 2575641050346956689, guid: 01f1c65e2953a0d4ebad97679904b5c9,
         type: 3}
       propertyPath: canvas
@@ -3723,6 +3827,7 @@ RectTransform:
   m_Children:
   - {fileID: 1587395305}
   - {fileID: 638697231}
+  - {fileID: 1180252362}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

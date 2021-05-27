@@ -11,6 +11,9 @@ namespace Blocker
     {
         public MonoBehaviour robot;
         public MonoBehaviour referenceRobot;
+        public Text resourceText;
+        public int spawnCost = 5;
+        public int scrapYield = 3;
         [SerializeField] GameObject selectionBlockPrefab;
         [SerializeField] GameObject navigationBlockPrefab;
         [SerializeField] GameObject generalBlockPrefab;
@@ -113,8 +116,13 @@ namespace Blocker
 
         public void SpawnRobotButtonClicked()
         {
-            this.objectManager.SpawnRobot((int) spawner.GetComponent<Spawner>().xCoord, (int) spawner.GetComponent<Spawner>().yCoord);
-            // resource text
+            // this.objectManager.SpawnRobot((int) spawner.GetComponent<Spawner>().xCoord, (int) spawner.GetComponent<Spawner>().yCoord);
+            if (int.Parse(resourceText.text.Split(' ')[2]) >= spawnCost)
+            {
+                this.objectManager.SpawnRobot(spawner.GetComponent<Spawner>().xCoord, spawner.GetComponent<Spawner>().yCoord);
+                string currentResource = resourceText.text.Split(' ')[2];
+                resourceText.text = "Scrap Metal: " + (int.Parse(currentResource) - spawnCost);
+            }
         }
 
         public void DestroyRobotButtonClicked()
@@ -125,7 +133,8 @@ namespace Blocker
                 Destroy(this.robot.gameObject);
                 this.robot = null;
                 UpdateCommandObject();
-                // resource text
+                string currentResource = resourceText.text.Split(' ')[2];
+                resourceText.text = "Scrap Metal: " + (int.Parse(currentResource) + scrapYield);
             }
         }
 
