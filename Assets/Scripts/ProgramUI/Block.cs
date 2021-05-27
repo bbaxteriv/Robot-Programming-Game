@@ -12,7 +12,8 @@ namespace Blocker
     {
         [SerializeField] GameObject IntFieldPrefab;
         [SerializeField] GameObject DropdownPrefab;
-        [SerializeField] Text nameText; // command name display
+        public Text nameText; // command name display
+        public int numLoops = 1;
 
         RectTransform rect;
         HorizontalLayoutGroup layoutGroup;
