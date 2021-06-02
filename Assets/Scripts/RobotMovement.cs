@@ -114,6 +114,18 @@ public class RobotMovement : ObjectMovement, IResettable
         }
     }
 
+    [Command]
+    void Repeat(int numTimes)
+    {
+
+    }
+
+    [Command]
+    void End_Repeat()
+    {
+
+    }
+
     public void Reset()
     {
         Teleport(1, 1);
@@ -160,7 +172,7 @@ public class RobotMovement : ObjectMovement, IResettable
 
         string currentResource = textEdit.text.Split(' ')[2];
         textEdit.text = "Scrap Metal: " + (int.Parse(currentResource) + 3);
-        robotHealth.Heal(5); 
+        robotHealth.Heal(5);
 
         }// else if (other.ToString() == "Enemy (UnityEngine.BoxCollider2D)") {
 

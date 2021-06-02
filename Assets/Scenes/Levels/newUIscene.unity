@@ -1933,8 +1933,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42cc14fb5ac92b44c8d8576bd51cf38c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  robotPrefab: {fileID: 0}
-  enemyPrefab: {fileID: 0}
+  robotPrefab: {fileID: 5021373613633938352, guid: 01f1c65e2953a0d4ebad97679904b5c9,
+    type: 3}
+  enemyPrefab: {fileID: 2976670800945515679, guid: 5896ab15effb544278815b1ba1ae05fa,
+    type: 3}
   healthBarCanvasPrefab: {fileID: 3248163428520829961, guid: 2ee7dd8063b5f724382c8baae7893188,
     type: 3}
   canvas: {fileID: 1550341477}
