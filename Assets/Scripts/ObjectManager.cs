@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System;
 /*
 Manages all the objects on the map
 */
@@ -33,8 +33,8 @@ public class ObjectManager : MonoBehaviour
         while (true)
         { 
             yield return new WaitForSeconds(10f);
-            int xcoord = Random.Range(6,39);
-            int ycoord = Random.Range(6,39);
+            int xcoord = UnityEngine.Random.Range(6,39);
+            int ycoord = UnityEngine.Random.Range(6,39);
             SpawnEnemy(xcoord,ycoord);
         }
     }

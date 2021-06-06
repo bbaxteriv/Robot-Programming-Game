@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using System;
 /*
 Handles the movement of an enemy
 */
@@ -18,7 +19,7 @@ public class Enemy : MonoBehaviour
     private TileMapGenerator mapGenerator;
     private EnemyHealth enemyHealth;
 
-    public int damage = 15;
+    public Text damageText;
 
     /*
     Start is called before the first frame update
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour
         this.transform.position = new Vector2(posX, posY);
         this.mapGenerator = this.manager.GetComponent<TileMapGenerator>();
         this.enemyHealth = this.gameObject.GetComponent<EnemyHealth>();
+        damageText = GameObject.Find("/ProgramWindow/DamageText").GetComponent<Text>();
         StartCoroutine(EnemyCoroutine());
     }
 
@@ -37,7 +39,7 @@ public class Enemy : MonoBehaviour
     {
         while (true)
         {
-            int randomDirection = Random.Range(1, 5);
+            int randomDirection = UnityEngine.Random.Range(1, 5);
             if (randomDirection == 1)
             {
                 MoveRight();
@@ -150,11 +152,13 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
       //Debug.Log(other);
       if (other.ToString() == "Robot(Clone) (UnityEngine.BoxCollider2D)" || other.ToString() == "Robot (UnityEngine.BoxCollider2D)")
       {
-      //  Debug.Log("its a robot! taking damage");
-        enemyHealth.TakeDamage(damage);
+            //  Debug.Log("its a robot! taking damage");
+            damageText = GameObject.Find("/ProgramWindow/DamageText").GetComponent<Text>();
+            enemyHealth.TakeDamage(Int32.Parse(damageText.text.Split(' ')[2]));
         //code needs to go here to increase scrap metal
       }
 

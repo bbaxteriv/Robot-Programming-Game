@@ -1449,6 +1449,7 @@ MonoBehaviour:
   robot: {fileID: 0}
   referenceRobot: {fileID: 277783015}
   resourceText: {fileID: 1180252363}
+  damageText: {fileID: 392547538}
   spawnCost: 5
   scrapYield: 3
   selectionBlockPrefab: {fileID: 6032574321932814202, guid: 0ff97caa43947364c86cafdb2019dc70,
@@ -1457,7 +1458,8 @@ MonoBehaviour:
     type: 3}
   generalBlockPrefab: {fileID: 9080145396321813467, guid: 1cc73a2fe5b11cc469df7a753bd5600a,
     type: 3}
-  upgradeBlockPrefab: {fileID: 0}
+  upgradeBlockPrefab: {fileID: 4210342363519800172, guid: 64e88f2120e486444ade60db5b54c2be,
+    type: 3}
   sequencer: {fileID: 1923734619}
   allBlocks: []
   generalBlocks: []

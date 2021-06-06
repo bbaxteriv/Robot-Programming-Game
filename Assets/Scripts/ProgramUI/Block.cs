@@ -12,6 +12,7 @@ namespace Blocker
     {
         [SerializeField] GameObject IntFieldPrefab;
         [SerializeField] GameObject DropdownPrefab;
+        [SerializeField] GameObject AddPrefab;
         public Text nameText; // command name display
         public int numLoops = 1;
 
@@ -33,6 +34,8 @@ namespace Blocker
         {
             String blockNameString = info.Name;
             blockNameString = blockNameString.Replace('_', ' ');
+            blockNameString = blockNameString.Replace('9', '(');
+            blockNameString = blockNameString.Replace('0', ')');
             nameText.text = blockNameString;
             SelectedBlock = selected;
 
@@ -62,16 +65,30 @@ namespace Blocker
                         Parameters[index] = Int32.Parse(inputField.text);
                     });
                 }
+                // else if (parameterType.BaseType == typeof(Enum))
+                // {
+                //     Dropdown dropdown = InstantiateBlockParameter<Dropdown>(DropdownPrefab);
+                //
+                //     // Populate the dropdown list
+                //     foreach (var option in Enum.GetValues(infos[i].ParameterType))
+                //         dropdown.options.Add(new Dropdown.OptionData(option.ToString()));
+                //
+                //     Parameters[index] = dropdown.value;
+                //     dropdown.onValueChanged.AddListener(delegate { Parameters[index] = dropdown.value; });
+                // }
                 else if (parameterType.BaseType == typeof(Enum))
                 {
                     Dropdown dropdown = InstantiateBlockParameter<Dropdown>(DropdownPrefab);
 
-                    // Populate the dropdown list
                     foreach (var option in Enum.GetValues(infos[i].ParameterType))
+                    {
                         dropdown.options.Add(new Dropdown.OptionData(option.ToString()));
+                    }
 
                     Parameters[index] = dropdown.value;
                     dropdown.onValueChanged.AddListener(delegate { Parameters[index] = dropdown.value; });
+
+                    Button addField = InstantiateBlockParameter<Button>(AddPrefab);
                 }
                 // else if (parameterType == typeof(float))
                 // {
@@ -147,6 +164,11 @@ namespace Blocker
             {
                 Destroy(gameObject);
             }
+        }
+
+        public void AddDropdownField()
+        {
+
         }
     }
 }

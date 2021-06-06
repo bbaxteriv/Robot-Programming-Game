@@ -12,6 +12,7 @@ namespace Blocker
         public MonoBehaviour robot;
         public MonoBehaviour referenceRobot;
         public Text resourceText;
+        public Text damageText;
         public int spawnCost = 5;
         public int scrapYield = 3;
         [SerializeField] GameObject selectionBlockPrefab;
@@ -28,6 +29,7 @@ namespace Blocker
         public GameObject spawner;
         public GameObject manager;
         private ObjectManager objectManager;
+        private UIController uiController;
 
         void Start()
         {
@@ -51,7 +53,7 @@ namespace Blocker
             programBlocks = CreateSelectionBlocks();
             // allBlocks = programBlocks;
             generalBlocks = CreateGeneralBlocks();
-            // upgradesBlocks = new List<GameObject>();
+            upgradesBlocks = CreateUpgradeBlocks();
             allBlocks.AddRange(programBlocks);
             allBlocks.AddRange(generalBlocks);
             allBlocks.AddRange(upgradesBlocks);
@@ -114,6 +116,18 @@ namespace Blocker
             return buttons;
         }
 
+        List<GameObject> CreateUpgradeBlocks()
+        {
+            List<GameObject> buttons = new List<GameObject>();
+            GameObject upgradeDamageButton = Instantiate(upgradeBlockPrefab, transform);
+            upgradeDamageButton.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Increase Damage";
+            // edit below                                                    @@@@
+            upgradeDamageButton.GetComponent<Button>().onClick.AddListener(UpgradeDamageButtonClicked);
+            upgradeDamageButton.SetActive(false);
+            buttons.Add(upgradeDamageButton);
+            return buttons;
+        }
+
         public void SpawnRobotButtonClicked()
         {
             // this.objectManager.SpawnRobot((int) spawner.GetComponent<Spawner>().xCoord, (int) spawner.GetComponent<Spawner>().yCoord);
@@ -143,6 +157,18 @@ namespace Blocker
             foreach (GameObject g in programBlocks)
             {
                 g.GetComponent<SelectionBlock>().commandObject = robot;
+            }
+        }
+        public void UpgradeDamageButtonClicked()
+        {
+            if (int.Parse(resourceText.text.Split(' ')[2]) >= 10)
+            {
+                string currentResource = resourceText.text.Split(' ')[2];
+                resourceText.text = "Scrap Metal: " + (int.Parse(currentResource) - 10);
+                //add the functionality here
+                string currentDamage = damageText.text.Split(' ')[2];
+                damageText.text = "Robot Damage: " + (int.Parse(currentDamage) + 5);
+                //add the functionality here
             }
         }
     }

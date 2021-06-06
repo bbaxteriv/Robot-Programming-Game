@@ -12,6 +12,10 @@ public class RobotMovement : ObjectMovement, IResettable
 {
     private RobotHealth robotHealth;
     public Text textEdit;
+    List<string> dropdown = new List<string> {"robot", "upTile", "downTile", "leftTile",
+    "rightTile", "and", "or", "not", "is", ".isOnEdge()", ".isWalkable()", ".hasCrate()",
+    ".hasEnemy()", ".xCoord()", ".yCoord()", ".health()", ">", "<", "=", ">=", "<="};
+    enum Test { robot, upTile, downTile, leftTile, rightTile }
 
     public string SequenceString = "Right, Left, Right, Left, Right,";
     /*
@@ -125,6 +129,12 @@ public class RobotMovement : ObjectMovement, IResettable
     {
 
     }
+
+    // [Command]
+    // void If(Test t)
+    // {
+    //
+    // }
 
     public void Reset()
     {

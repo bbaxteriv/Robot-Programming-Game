@@ -214,4 +214,7 @@ MonoBehaviour:
     type: 3}
   DropdownPrefab: {fileID: 1514563132155075944, guid: f5a3095d0b058e54680586897e825516,
     type: 3}
+  AddPrefab: {fileID: 9105401075483311723, guid: 87bc2ae3a689f73438d1a79c99fd060e,
+    type: 3}
   nameText: {fileID: 6993405824769541908}
+  numLoops: 1
