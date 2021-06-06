@@ -33,8 +33,8 @@ public class ObjectManager : MonoBehaviour
         while (true)
         { 
             yield return new WaitForSeconds(10f);
-            int xcoord = Random.Range(3,16);
-            int ycoord = Random.Range(3,16);
+            int xcoord = Random.Range(6,39);
+            int ycoord = Random.Range(6,39);
             SpawnEnemy(xcoord,ycoord);
         }
     }
