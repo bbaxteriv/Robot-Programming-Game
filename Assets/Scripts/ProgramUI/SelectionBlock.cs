@@ -22,6 +22,8 @@ namespace Blocker
             sequencer = seq;
             String blockNameString = info.Name;
             blockNameString = blockNameString.Replace('_', ' ');
+            blockNameString = blockNameString.Replace('9', '(');
+            blockNameString = blockNameString.Replace('0', ')');
             nameText.text = blockNameString;
         }
 

@@ -28,6 +28,7 @@ namespace Blocker
         public GameObject spawner;
         public GameObject manager;
         private ObjectManager objectManager;
+        private UIController uiController;
 
         void Start()
         {
@@ -51,7 +52,7 @@ namespace Blocker
             programBlocks = CreateSelectionBlocks();
             // allBlocks = programBlocks;
             generalBlocks = CreateGeneralBlocks();
-            // upgradesBlocks = new List<GameObject>();
+            upgradesBlocks = CreateUpgradeBlocks();
             allBlocks.AddRange(programBlocks);
             allBlocks.AddRange(generalBlocks);
             allBlocks.AddRange(upgradesBlocks);
@@ -111,6 +112,18 @@ namespace Blocker
             destroyRobotButton.GetComponent<Button>().onClick.AddListener(DestroyRobotButtonClicked);
             destroyRobotButton.SetActive(false);
             buttons.Add(destroyRobotButton);
+            return buttons;
+        }
+
+        List<GameObject> CreateUpgradeBlocks()
+        {
+            List<GameObject> buttons = new List<GameObject>();
+            GameObject upgradeDamageButton = Instantiate(upgradeBlockPrefab, transform);
+            upgradeDamageButton.transform.GetChild(0).gameObject.GetComponent<Text>().text = "Increase Damage";
+            // edit below                                                    @@@@
+            upgradeDamageButton.GetComponent<Button>().onClick.AddListener(SpawnRobotButtonClicked);
+            upgradeDamageButton.SetActive(false);
+            buttons.Add(upgradeDamageButton);
             return buttons;
         }
 
