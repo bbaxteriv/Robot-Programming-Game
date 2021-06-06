@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     private TileMapGenerator mapGenerator;
     private EnemyHealth enemyHealth;
 
+    public int damage = 15;
+
     /*
     Start is called before the first frame update
     */
@@ -152,7 +154,7 @@ public class Enemy : MonoBehaviour
       if (other.ToString() == "Robot(Clone) (UnityEngine.BoxCollider2D)" || other.ToString() == "Robot (UnityEngine.BoxCollider2D)")
       {
       //  Debug.Log("its a robot! taking damage");
-        enemyHealth.TakeDamage(15);
+        enemyHealth.TakeDamage(damage);
         //code needs to go here to increase scrap metal
       }
 
