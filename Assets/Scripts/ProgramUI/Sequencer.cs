@@ -55,8 +55,13 @@ namespace Blocker
         public void Execute()
         {
             Stop();
-
-            executionCoroutine = StartCoroutine(ExecutionCoroutine());
+            if (blocks.Count > 0)
+            {
+                if (blocks[0].SelectedBlock.commandObject != null)
+                {
+                    executionCoroutine = StartCoroutine(ExecutionCoroutine());
+                }
+            }
         }
 
         public void Stop()
@@ -102,10 +107,43 @@ namespace Blocker
         IEnumerator ExecutionCoroutine()
         {
             ExecutingSequence = true;
-            foreach (Block block in blocks)
+            int currBlock = 0;
+            List<int> sendBack = new List<int>();
+            List<int> loopsLeft = new List<int>();
+            while (currBlock < blocks.Count)
             {
+                Block block = blocks[currBlock];
+                // print(block.nameText.text);
+                // if (block.Parameters != null)
+                // {
+                //     print(block.Parameters[0]);
+                // }
+                if (block.nameText.text == "Repeat")
+                {
+                    sendBack.Add(currBlock);
+                    if (block.Parameters != null)
+                    {
+                        loopsLeft.Add(((int) block.Parameters[0])-1);
+                    }
+                }
+                if (block.nameText.text == "End Repeat")
+                {
+                    // print(string.Join(";", sendBack));
+                    // print(string.Join(";", loopsLeft));
+                    if (loopsLeft[loopsLeft.Count-1] > 0)
+                    {
+                        loopsLeft[loopsLeft.Count-1] -= 1;
+                        currBlock = sendBack[sendBack.Count-1];
+                    }
+                    else
+                    {
+                        loopsLeft.RemoveAt(loopsLeft.Count-1);
+                        sendBack.RemoveAt(sendBack.Count-1);
+                    }
+                }
                 block.SelectedBlock.Execute(block.Parameters);
                 yield return new WaitForSeconds(executionDelay);
+                currBlock += 1;
             }
             ExecutingSequence = false;
         }
